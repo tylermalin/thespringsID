@@ -13,7 +13,7 @@ const LuxuryHero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden mb-8 md:mb-0">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
@@ -46,7 +46,7 @@ const LuxuryHero = () => {
             Idaho's Premier Mountain Hot Springs — Wellness, Luxury, and Nature Combined
           </p>
 
-          <div className="pt-12 space-x-4">
+          <div className="pt-8 md:pt-12 space-x-4">
             <Button 
               variant="outline" 
               size="xl" 
@@ -65,23 +65,7 @@ const LuxuryHero = () => {
           </div>
         </div>
 
-        {/* Minimal Info Markers */}
-        <div className="absolute bottom-20 left-0 right-0">
-          <div className="flex justify-center items-center space-x-16">
-            <div className="text-center">
-              <div className="w-2 h-2 bg-black/60 rounded-full mx-auto mb-3"></div>
-              <p className="font-avenir text-black/80 text-sm tracking-wider">THERMAL POOLS</p>
-            </div>
-            <div className="text-center">
-              <div className="w-2 h-2 bg-black/60 rounded-full mx-auto mb-3"></div>
-              <p className="font-avenir text-black/80 text-sm tracking-wider">SPA TREATMENTS</p>
-            </div>
-            <div className="text-center">
-              <div className="w-2 h-2 bg-black/60 rounded-full mx-auto mb-3"></div>
-              <p className="font-avenir text-black/80 text-sm tracking-wider">MOUNTAIN LODGE</p>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

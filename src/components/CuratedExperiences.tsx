@@ -38,7 +38,7 @@ const CuratedExperiences = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="pt-12 md:py-20 bg-background">
       <div className="luxury-container">
         <div className="text-center mb-16">
           <h2 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">

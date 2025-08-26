@@ -126,6 +126,12 @@ const Footer = () => {
               >
                 Accessibility
               </button>
+              <button 
+                onClick={() => navigate('/sustainability')}
+                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
+              >
+                Sustainability
+              </button>
             </div>
           </div>
         </div>
