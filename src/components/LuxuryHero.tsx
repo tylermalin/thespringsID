@@ -28,11 +28,13 @@ const LuxuryHero = () => {
       {/* Minimalist Hero Content */}
       <div className="relative z-10 text-center luxury-container animate-luxury-fade">
         <div className="max-w-4xl mx-auto space-y-8">
-          <h1 className="font-canela text-6xl md:text-8xl font-normal text-black leading-[0.9] tracking-tight">
-            Mountain
-            <br />
-            Sanctuary
-          </h1>
+          <div className="flex justify-center">
+            <img 
+              src="/springslogo.png" 
+              alt="The Springs" 
+              className="h-24 md:h-32 w-auto opacity-90"
+            />
+          </div>
           
           <div className="w-24 h-px bg-black/60 mx-auto my-12"></div>
           
