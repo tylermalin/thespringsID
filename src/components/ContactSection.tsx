@@ -1,8 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const ContactSection = () => {
+  const navigate = useNavigate();
+
+  const handleBookHotSprings = () => {
+    navigate('/booking', { state: { selectedProduct: 'soak' } });
+  };
+
+  const handleBookAccommodation = () => {
+    navigate('/booking', { state: { selectedProduct: 'inn' } });
+  };
+
+  const handleGiftCards = () => {
+    navigate('/gift-cards');
+  };
+
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5" />,
@@ -62,10 +77,20 @@ const ContactSection = () => {
             <div className="pt-6">
               <h3 className="text-xl font-semibold text-primary mb-4">Ready to Book?</h3>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="luxury" size="lg" className="flex-1">
+                <Button 
+                  variant="luxury" 
+                  size="lg" 
+                  className="flex-1"
+                  onClick={handleBookHotSprings}
+                >
                   Book Hot Springs
                 </Button>
-                <Button variant="hero" size="lg" className="flex-1">
+                <Button 
+                  variant="hero" 
+                  size="lg" 
+                  className="flex-1"
+                  onClick={handleBookAccommodation}
+                >
                   Book Accommodation
                 </Button>
               </div>
@@ -93,7 +118,12 @@ const ContactSection = () => {
           <p className="text-primary-foreground/90 mb-6 max-w-xl mx-auto">
             Share the experience of mountain wellness with our luxury gift cards, perfect for any occasion
           </p>
-          <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="bg-white text-primary hover:bg-white/90"
+            onClick={handleGiftCards}
+          >
             Purchase Gift Cards
           </Button>
         </div>

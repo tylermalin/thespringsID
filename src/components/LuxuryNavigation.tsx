@@ -1,26 +1,39 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const LuxuryNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navLinks = [
-    { href: "#experiences", label: "Experiences" },
-    { href: "#accommodations", label: "Accommodations" },
-    { href: "#wellness", label: "Wellness" },
-    { href: "#about", label: "Our Story" },
+    { href: "/experiences", label: "Experiences" },
+    { href: "/accommodations", label: "Accommodations" },
+    { href: "/spa", label: "Spa & Wellness" },
+    { href: "/about", label: "Our Story" },
   ];
 
+  const handleBookNow = () => {
+    navigate('/booking');
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border/50">
       <div className="luxury-container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="font-canela text-3xl font-normal text-primary tracking-tight">
-              The Springs
-            </h1>
+            <button 
+              onClick={() => navigate('/')}
+              className="hover:opacity-80 transition-opacity"
+            >
+              <img 
+                src="/src/assets/springslogo.png" 
+                alt="The Springs" 
+                className="h-12 w-auto"
+              />
+            </button>
           </div>
 
           {/* Desktop Navigation - Minimal and Curated */}
@@ -38,8 +51,13 @@ const LuxuryNavigation = () => {
 
           {/* Single CTA - Exclusive Experience */}
           <div className="hidden lg:flex items-center">
-            <Button variant="hero" size="lg" className="font-avenir">
-              Reserve Experience
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="font-avenir"
+              onClick={handleBookNow}
+            >
+              Book Now
             </Button>
           </div>
 
@@ -70,8 +88,13 @@ const LuxuryNavigation = () => {
                 </a>
               ))}
               <div className="pt-6">
-                <Button variant="hero" size="lg" className="w-full font-avenir">
-                  Reserve Experience
+                <Button 
+                  variant="hero" 
+                  size="lg" 
+                  className="w-full font-avenir"
+                  onClick={handleBookNow}
+                >
+                  Book Now
                 </Button>
               </div>
             </div>

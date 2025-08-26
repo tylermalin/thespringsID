@@ -1,9 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import innImage from "@/assets/inn-room.jpg";
+
 import { Wifi, Coffee, Car, Utensils, Mountain, Flame } from "lucide-react";
 
 const InnSection = () => {
+  const navigate = useNavigate();
+
+  const handleBookStay = () => {
+    navigate('/booking', { state: { selectedProduct: 'inn' } });
+  };
+
+  const handleViewRooms = () => {
+    navigate('/accommodations');
+  };
+
   const amenities = [
     { icon: <Mountain className="w-5 h-5" />, name: "Mountain Views" },
     { icon: <Wifi className="w-5 h-5" />, name: "Free WiFi" },
@@ -57,10 +68,20 @@ const InnSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="flex-1">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="flex-1"
+                onClick={handleBookStay}
+              >
                 Book Your Stay
               </Button>
-              <Button variant="outline" size="lg" className="flex-1">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="flex-1"
+                onClick={handleViewRooms}
+              >
                 View Rooms
               </Button>
             </div>
@@ -70,11 +91,10 @@ const InnSection = () => {
           <div className="order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src={innImage}
-                alt="Luxury mountain resort room at Inn The Pines"
+                src="/src/assets/innthepines.jpg"
+                alt="Inn The Pines mountain lodge"
                 className="w-full h-[600px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
           </div>
         </div>

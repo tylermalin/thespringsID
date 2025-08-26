@@ -1,41 +1,44 @@
+import { useNavigate } from "react-router-dom";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   const footerLinks = [
     {
       title: "Experiences",
       links: [
-        { name: "Hot Springs", href: "#" },
-        { name: "Spa Treatments", href: "#" },
-        { name: "Private Events", href: "#" },
-        { name: "Gift Cards", href: "#" },
+        { name: "Hot Springs", href: "/experiences", onClick: () => navigate('/booking', { state: { selectedProduct: 'soak' } }) },
+        { name: "Spa Treatments", href: "/spa", onClick: () => navigate('/booking', { state: { selectedProduct: 'spa' } }) },
+        { name: "Private Events", href: "/private-events", onClick: () => navigate('/private-events') },
+        { name: "Gift Cards", href: "/gift-cards", onClick: () => navigate('/gift-cards') },
       ],
     },
     {
       title: "Accommodations",
       links: [
-        { name: "Standard Rooms", href: "#" },
-        { name: "Luxury Suites", href: "#" },
-        { name: "Packages", href: "#" },
-        { name: "Policies", href: "#" },
+        { name: "Standard Rooms", href: "/accommodations", onClick: () => navigate('/accommodations') },
+        { name: "Luxury Suites", href: "/accommodations", onClick: () => navigate('/accommodations') },
+        { name: "Packages", href: "/packages", onClick: () => navigate('/packages') },
+        { name: "Policies", href: "/policies", onClick: () => navigate('/policies') },
       ],
     },
     {
       title: "About",
       links: [
-        { name: "Our Story", href: "#" },
-        { name: "Sustainability", href: "#" },
-        { name: "Careers", href: "#" },
-        { name: "Press", href: "#" },
+        { name: "Our Story", href: "/about", onClick: () => navigate('/about') },
+        { name: "Sustainability", href: "/sustainability", onClick: () => navigate('/sustainability') },
+        { name: "Careers", href: "/careers", onClick: () => navigate('/careers') },
+        { name: "Press", href: "/press", onClick: () => navigate('/press') },
       ],
     },
     {
       title: "Support",
       links: [
-        { name: "Contact Us", href: "#" },
-        { name: "FAQs", href: "#" },
-        { name: "Accessibility", href: "#" },
-        { name: "Privacy Policy", href: "#" },
+        { name: "Contact Us", href: "/contact", onClick: () => navigate('/contact') },
+        { name: "FAQs", href: "/faqs", onClick: () => navigate('/faqs') },
+        { name: "Accessibility", href: "/accessibility", onClick: () => navigate('/accessibility') },
+        { name: "Privacy Policy", href: "/privacy", onClick: () => navigate('/privacy') },
       ],
     },
   ];
@@ -54,7 +57,11 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Brand Section */}
             <div className="lg:col-span-2">
-              <h3 className="text-3xl font-serif font-bold mb-4">The Springs</h3>
+              <img 
+                src="/src/assets/springslogolight.png" 
+                alt="The Springs" 
+                className="h-12 w-auto mb-4"
+              />
               <p className="text-primary-foreground/80 mb-6 leading-relaxed">
                 Experience luxury mountain wellness at our pristine hot springs resort in the heart of the Colorado Rockies.
               </p>
@@ -77,16 +84,16 @@ const Footer = () => {
             {/* Footer Links */}
             {footerLinks.map((column) => (
               <div key={column.title}>
-                <h4 className="font-semibold mb-4 text-luxury">{column.title}</h4>
+                <h4 className="font-semibold mb-4 text-white">{column.title}</h4>
                 <ul className="space-y-2">
                   {column.links.map((link) => (
                     <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                      <button
+                        onClick={link.onClick}
+                        className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left w-full"
                       >
                         {link.name}
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
