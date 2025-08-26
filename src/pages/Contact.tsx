@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
+import InteractiveMap from "@/components/InteractiveMap";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
 
@@ -258,16 +259,7 @@ const ContactPage = () => {
             </p>
           </div>
 
-          <div className="bg-accent rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-luxury mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-primary mb-2">Interactive Map</h3>
-              <p className="text-muted-foreground mb-6">
-                Detailed directions and location information coming soon
-              </p>
-              <Button variant="outline">Get Directions</Button>
-            </div>
-          </div>
+          <InteractiveMap />
         </div>
       </section>
 

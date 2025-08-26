@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import InteractiveMap from "./InteractiveMap";
 
 const ContactSection = () => {
   const navigate = useNavigate();
@@ -22,22 +23,22 @@ const ContactSection = () => {
     {
       icon: <MapPin className="w-5 h-5" />,
       title: "Location",
-      details: ["123 Mountain Springs Road", "Pine Valley, CO 80424"],
+      details: ["3764 Hwy 21", "Idaho City, ID 83631"],
     },
     {
       icon: <Phone className="w-5 h-5" />,
       title: "Reservations",
-      details: ["(555) 123-SPRINGS", "(555) 123-7774"],
+      details: ["(208) 392-7680"],
     },
     {
       icon: <Mail className="w-5 h-5" />,
       title: "Email",
-      details: ["info@thespringsresort.com", "events@thespringsresort.com"],
+      details: ["info@thespringsid.com"],
     },
     {
       icon: <Clock className="w-5 h-5" />,
       title: "Hours",
-      details: ["Hot Springs: 7am - 10pm", "Spa: 9am - 8pm"],
+      details: ["Hot Springs: 9:00 AM - 9:00 PM", "Spa: By appointment"],
     },
   ];
 
@@ -49,7 +50,7 @@ const ContactSection = () => {
             Visit The Springs
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Located in the heart of the Colorado Rockies, we're ready to welcome you to your mountain retreat
+            Located in the heart of the Idaho mountains, we're ready to welcome you to your mountain retreat
           </p>
         </div>
 
@@ -97,17 +98,8 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Map Placeholder */}
-          <div className="bg-accent rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-luxury mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-primary mb-2">Interactive Map</h3>
-              <p className="text-muted-foreground mb-6">
-                Detailed directions and location information coming soon
-              </p>
-              <Button variant="outline">Get Directions</Button>
-            </div>
-          </div>
+          {/* Interactive Map */}
+          <InteractiveMap />
         </div>
 
         {/* Gift Cards CTA */}
