@@ -1,17 +1,17 @@
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import ExperiencesSection from "@/components/ExperiencesSection";
+import LuxuryNavigation from "@/components/LuxuryNavigation";
+import LuxuryHero from "@/components/LuxuryHero";
+import CuratedExperiences from "@/components/CuratedExperiences";
 import InnSection from "@/components/InnSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <div className="min-h-screen bg-background font-avenir">
+      <LuxuryNavigation />
       <main>
-        <HeroSection />
-        <ExperiencesSection />
+        <LuxuryHero />
+        <CuratedExperiences />
         <InnSection />
         <ContactSection />
       </main>

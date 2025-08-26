@@ -2,58 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* The Springs Resort Design System - Luxury Mountain Spa Aesthetic
-All colors MUST be HSL.
+/* The Springs Resort Design System - Luxury Minimalist Aesthetic
+All colors MUST be HSL. Focused on monochrome luxury with strategic accent.
 */
 
 @layer base {
   :root {
-    /* Luxury spa color palette */
-    --background: 45 15% 97%;
-    --foreground: 25 20% 15%;
+    /* Luxury monochrome palette */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
 
-    --card: 45 20% 98%;
-    --card-foreground: 25 25% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 45 25% 99%;
-    --popover-foreground: 25 25% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Mountain stone primary - warm charcoal */
-    --primary: 25 25% 25%;
-    --primary-foreground: 45 30% 98%;
+    /* Pure black primary for luxury authority */
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
 
-    /* Spa stone secondary - warm light gray */
-    --secondary: 40 15% 92%;
-    --secondary-foreground: 25 25% 25%;
+    /* Sophisticated gray secondary */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    /* Muted earth tones */
-    --muted: 42 18% 90%;
-    --muted-foreground: 25 15% 45%;
+    /* Refined muted tones */
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Hot springs accent - warm blue-green */
-    --accent: 180 25% 85%;
-    --accent-foreground: 25 25% 25%;
+    /* Subtle accent - barely there gray */
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 8%;
 
-    /* Luxury gold accent */
-    --luxury: 45 85% 65%;
-    --luxury-foreground: 25 25% 15%;
+    /* Single luxury accent - deep charcoal */
+    --luxury: 0 0% 15%;
+    --luxury-foreground: 0 0% 98%;
 
-    /* Spa blue - calming waters */
-    --spa-blue: 200 35% 75%;
-    --spa-blue-foreground: 25 25% 15%;
-
-    /* Forest green - mountain nature */
-    --forest: 150 30% 35%;
-    --forest-foreground: 45 25% 98%;
+    /* Minimal color for exclusive moments */
+    --exclusive: 0 0% 25%;
+    --exclusive-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 25% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 40 20% 88%;
-    --input: 40 20% 90%;
-    --ring: 180 25% 75%;
+    --border: 0 0% 90%;
+    --input: 0 0% 92%;
+    --ring: 0 0% 20%;
 
-    --radius: 0.75rem;
+    --radius: 0rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -73,88 +69,109 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 25 25% 8%;
-    --foreground: 45 25% 95%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
 
-    --card: 25 25% 10%;
-    --card-foreground: 45 25% 95%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 25 25% 10%;
-    --popover-foreground: 45 25% 95%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 45 25% 95%;
-    --primary-foreground: 25 25% 15%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 25 20% 15%;
-    --secondary-foreground: 45 25% 95%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 25 20% 15%;
-    --muted-foreground: 45 15% 65%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 180 20% 20%;
-    --accent-foreground: 45 25% 95%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 96%;
 
-    --luxury: 45 70% 60%;
-    --luxury-foreground: 25 25% 15%;
+    --luxury: 0 0% 85%;
+    --luxury-foreground: 0 0% 4%;
 
-    --spa-blue: 200 30% 25%;
-    --spa-blue-foreground: 45 25% 95%;
-
-    --forest: 150 25% 25%;
-    --forest-foreground: 45 25% 95%;
+    --exclusive: 0 0% 75%;
+    --exclusive-foreground: 0 0% 4%;
 
     --destructive: 0 62.8% 50%;
-    --destructive-foreground: 45 25% 95%;
+    --destructive-foreground: 0 0% 96%;
 
-    --border: 25 20% 18%;
-    --input: 25 20% 18%;
-    --ring: 180 25% 65%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 80%;
     
-    --sidebar-background: 25 25% 8%;
-    --sidebar-foreground: 45 20% 85%;
-    --sidebar-primary: 180 25% 65%;
-    --sidebar-primary-foreground: 25 25% 8%;
-    --sidebar-accent: 25 20% 15%;
-    --sidebar-accent-foreground: 45 20% 85%;
-    --sidebar-border: 25 20% 18%;
-    --sidebar-ring: 180 25% 65%;
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 85%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 80%;
   }
 
-  /* Custom gradients */
-  .gradient-spa {
-    background: linear-gradient(135deg, hsl(var(--spa-blue)), hsl(var(--accent)));
-  }
-  
+  /* Luxury gradient - subtle and refined */
   .gradient-luxury {
-    background: linear-gradient(135deg, hsl(var(--luxury)), hsl(var(--primary)));
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--luxury)));
   }
   
-  .gradient-mountain {
+  .gradient-subtle {
     background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
   }
 
-  /* Elegant animations */
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  /* Refined animations - slower and more elegant */
+  .animate-luxury-float {
+    animation: luxury-float 8s ease-in-out infinite;
   }
 
-  .animate-fade-up {
-    animation: fade-up 0.8s ease-out;
+  .animate-luxury-fade {
+    animation: luxury-fade 1.2s ease-out;
   }
 
-  @keyframes float {
+  @keyframes luxury-float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-6px); }
   }
 
-  @keyframes fade-up {
+  @keyframes luxury-fade {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Typography system */
+  .font-canela {
+    font-family: 'canela', serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'ss01' 1;
+  }
+
+  .font-avenir {
+    font-family: 'Avenir Next', 'avenir-next', sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  /* Luxury spacing and layouts */
+  .luxury-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .luxury-section {
+    padding: 8rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .luxury-section {
+      padding: 4rem 0;
     }
   }
 }

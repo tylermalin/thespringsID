@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				serif: ['Playfair Display', 'serif'],
-				sans: ['Inter', 'sans-serif'],
+				serif: ['canela', 'serif'],
+				sans: ['Avenir Next', 'avenir-next', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -52,13 +52,9 @@ export default {
 					DEFAULT: 'hsl(var(--luxury))',
 					foreground: 'hsl(var(--luxury-foreground))'
 				},
-				'spa-blue': {
-					DEFAULT: 'hsl(var(--spa-blue))',
-					foreground: 'hsl(var(--spa-blue-foreground))'
-				},
-				forest: {
-					DEFAULT: 'hsl(var(--forest))',
-					foreground: 'hsl(var(--forest-foreground))'
+				exclusive: {
+					DEFAULT: 'hsl(var(--exclusive))',
+					foreground: 'hsl(var(--exclusive-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

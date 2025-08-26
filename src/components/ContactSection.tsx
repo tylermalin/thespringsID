@@ -62,7 +62,7 @@ const ContactSection = () => {
             <div className="pt-6">
               <h3 className="text-xl font-semibold text-primary mb-4">Ready to Book?</h3>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="spa" size="lg" className="flex-1">
+                <Button variant="luxury" size="lg" className="flex-1">
                   Book Hot Springs
                 </Button>
                 <Button variant="hero" size="lg" className="flex-1">
