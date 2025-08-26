@@ -17,6 +17,10 @@ import GiftCards from "./pages/GiftCards";
 import PrivateEvents from "./pages/PrivateEvents";
 import FAQs from "./pages/FAQs";
 import Policies from "./pages/Policies";
+import DoubleQueenGallery from "./pages/DoubleQueenGallery";
+import PrivateTubsGallery from "./pages/PrivateTubsGallery";
+import KingGallery from "./pages/KingGallery";
+import PublicPoolsGallery from "./pages/PublicPoolsGallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -78,6 +82,10 @@ const App = () => (
             <Route path="/private-events" element={<PrivateEvents />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/policies" element={<Policies />} />
+            <Route path="/double-queen-gallery" element={<DoubleQueenGallery />} />
+            <Route path="/private-tubs-gallery" element={<PrivateTubsGallery />} />
+            <Route path="/king-gallery" element={<KingGallery />} />
+            <Route path="/public-pools-gallery" element={<PublicPoolsGallery />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

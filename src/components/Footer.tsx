@@ -63,7 +63,7 @@ const Footer = () => {
                 className="h-12 w-auto mb-4"
               />
               <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-                Experience luxury mountain wellness at our pristine hot springs resort in the heart of the Colorado Rockies.
+                Experience luxury mountain wellness at our pristine hot springs resort in the heart of the Idaho mountains.
               </p>
               
               {/* Social Links */}

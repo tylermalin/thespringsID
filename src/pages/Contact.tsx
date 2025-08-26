@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Globe, ChevronDown, ChevronUp } from "lucide-react";
 import InteractiveMap from "@/components/InteractiveMap";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
 
 const ContactPage = () => {
   const navigate = useNavigate();
+  const [expandedDirection, setExpandedDirection] = useState<string | null>(null);
 
   const handleBookNow = () => {
     navigate('/booking');
+  };
+
+  const toggleDirection = (direction: string) => {
+    setExpandedDirection(expandedDirection === direction ? null : direction);
   };
 
   const contactInfo = [
@@ -255,8 +260,77 @@ const ContactPage = () => {
             </h2>
             <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
             <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
-              From Boise: Take Highway 21 north towards Idaho City, look for sign on left just past mile marker 37 (Idaho City is 1 mile beyond The Springs)
+              Located in the heart of the Idaho mountains, just north of Idaho City
             </p>
+          </div>
+
+          {/* Get Directions Buttons - Mobile First */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="font-avenir"
+              onClick={() => window.open('https://maps.google.com/?q=3742+Hwy+21+Idaho+City+ID+83631', '_blank')}
+            >
+              Get Directions to The Springs
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="font-avenir"
+              onClick={() => window.open('https://maps.google.com/?q=3764+Hwy+21+Idaho+City+ID+83631', '_blank')}
+            >
+              Get Directions to Inn The Pines
+            </Button>
+          </div>
+
+          {/* Collapsible Directions */}
+          <div className="max-w-2xl mx-auto space-y-4 mb-12">
+            <Card className="border-0 bg-card">
+              <CardHeader 
+                className="cursor-pointer hover:bg-secondary/50 transition-colors"
+                onClick={() => toggleDirection('boise')}
+              >
+                <div className="flex items-center justify-between">
+                  <CardTitle className="font-canela text-xl">From Boise</CardTitle>
+                  {expandedDirection === 'boise' ? 
+                    <ChevronUp className="w-5 h-5" /> : 
+                    <ChevronDown className="w-5 h-5" />
+                  }
+                </div>
+              </CardHeader>
+              {expandedDirection === 'boise' && (
+                <CardContent>
+                  <p className="font-avenir text-muted-foreground leading-relaxed">
+                    Take Highway 21 north towards Idaho City. Look for The Springs sign on the left just past mile marker 37. 
+                    Idaho City is 1 mile beyond The Springs. Drive time: approximately 45 minutes.
+                  </p>
+                </CardContent>
+              )}
+            </Card>
+
+            <Card className="border-0 bg-card">
+              <CardHeader 
+                className="cursor-pointer hover:bg-secondary/50 transition-colors"
+                onClick={() => toggleDirection('idaho-city')}
+              >
+                <div className="flex items-center justify-between">
+                  <CardTitle className="font-canela text-xl">From Idaho City</CardTitle>
+                  {expandedDirection === 'idaho-city' ? 
+                    <ChevronUp className="w-5 h-5" /> : 
+                    <ChevronDown className="w-5 h-5" />
+                  }
+                </div>
+              </CardHeader>
+              {expandedDirection === 'idaho-city' && (
+                <CardContent>
+                  <p className="font-avenir text-muted-foreground leading-relaxed">
+                    Head south on Highway 21 towards Boise. The Springs is located 1 mile south of Idaho City on the right side of the highway. 
+                    Look for our distinctive sign. Drive time: approximately 2 minutes.
+                  </p>
+                </CardContent>
+              )}
+            </Card>
           </div>
 
           <InteractiveMap />

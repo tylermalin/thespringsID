@@ -46,7 +46,7 @@ const ExperiencesPage = () => {
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={() => handleBookNow('soak')}
               >
-                Book Hot Springs
+                Reserve Hot Springs
               </Button>
             </div>
           </div>
@@ -166,13 +166,22 @@ const ExperiencesPage = () => {
                     2½ hour session
                   </div>
                 </div>
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => handleBookNow('soak')}
-                >
-                  Reserve Soak
-                </Button>
+                <div className="space-y-2">
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => handleBookNow('soak')}
+                  >
+                    Reserve Soak
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-luxury hover:text-luxury/80"
+                    onClick={() => navigate('/public-pools-gallery')}
+                  >
+                    View Photo Gallery
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
@@ -198,13 +207,22 @@ const ExperiencesPage = () => {
                     Adults 18+ only • 10:30 AM - 9:00 PM
                   </div>
                 </div>
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => handleBookNow('private_tub')}
-                >
-                  Reserve Private Tub
-                </Button>
+                <div className="space-y-2">
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => handleBookNow('private_tub')}
+                  >
+                    Reserve Private Tub
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-luxury hover:text-luxury/80"
+                    onClick={() => navigate('/private-tubs-gallery')}
+                  >
+                    View Photo Gallery
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -243,6 +261,79 @@ const ExperiencesPage = () => {
                 Provided on adults-only days (Mon, Thu, Fri). Steam room currently under renovation, returning spring 2024.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Spa & Wellness Services */}
+      <section className="luxury-section bg-background">
+        <div className="luxury-container">
+          <div className="text-center mb-16">
+            <h2 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">
+              Spa & Wellness Services
+            </h2>
+            <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
+            <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide mb-8">
+              Enhance your mountain wellness experience with our therapeutic treatments
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <Card className="border-0 bg-card hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">Therapeutic Massage</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4 mb-6">
+                  <div className="flex justify-between items-center">
+                    <span className="font-avenir">60-minute massage</span>
+                    <span className="text-luxury font-bold">$120</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-avenir">90-minute massage</span>
+                    <span className="text-luxury font-bold">$160</span>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    By appointment only • Adults 18+
+                  </div>
+                </div>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => handleBookNow('spa')}
+                >
+                  Book Massage
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 bg-card hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">Combination Packages</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4 mb-6">
+                  <div className="flex justify-between items-center">
+                    <span className="font-avenir">Soak + Massage</span>
+                    <span className="text-luxury font-bold">$140</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-avenir">Private Tub + Massage</span>
+                    <span className="text-luxury font-bold">$175</span>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Perfect wellness combination
+                  </div>
+                </div>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => handleBookNow('spa')}
+                >
+                  Book Package
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

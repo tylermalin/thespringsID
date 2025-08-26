@@ -78,7 +78,7 @@ const GiftCardsPage = () => {
             <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
             
             <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
-              Give the gift of mountain wellness and relaxation.
+              Perfect for birthdays, anniversaries, or simply sharing wellness.
             </p>
 
             <div className="pt-12">
@@ -87,7 +87,7 @@ const GiftCardsPage = () => {
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={handleContact}
               >
-                Purchase Gift Card
+                Buy Gift Card
               </Button>
             </div>
           </div>
@@ -150,7 +150,7 @@ const GiftCardsPage = () => {
                     className="w-full mt-6"
                     onClick={handleContact}
                   >
-                    Purchase ${amount.amount} Card
+                    Buy ${amount.amount} Card
                   </Button>
                 </CardContent>
               </Card>

@@ -10,7 +10,6 @@ const LuxuryNavigation = () => {
   const navLinks = [
     { href: "/experiences", label: "Experiences" },
     { href: "/accommodations", label: "Accommodations" },
-    { href: "/spa", label: "Spa & Wellness" },
     { href: "/about", label: "Our Story" },
   ];
 

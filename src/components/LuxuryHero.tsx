@@ -8,6 +8,10 @@ const LuxuryHero = () => {
     navigate('/booking');
   };
 
+  const handleDiscoverExperience = () => {
+    navigate('/experiences');
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
@@ -19,7 +23,7 @@ const LuxuryHero = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-                      <source src="/background.mp4" type="video/mp4" />
+          <source src="/steambackground.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-white/40"></div>
@@ -39,7 +43,7 @@ const LuxuryHero = () => {
           <div className="w-24 h-px bg-black/60 mx-auto my-12"></div>
           
           <p className="font-avenir text-xl md:text-2xl text-black/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
-            A curated wellness experience where natural thermal waters meet refined luxury
+            Idaho's Premier Mountain Hot Springs — Wellness, Luxury, and Nature Combined
           </p>
 
           <div className="pt-12 space-x-4">
@@ -47,6 +51,7 @@ const LuxuryHero = () => {
               variant="outline" 
               size="xl" 
               className="font-avenir bg-white/90 border-black/30 text-black hover:bg-white backdrop-blur-sm tracking-wide"
+              onClick={handleDiscoverExperience}
             >
               Discover Experience
             </Button>

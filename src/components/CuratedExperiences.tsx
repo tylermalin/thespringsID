@@ -16,7 +16,7 @@ const CuratedExperiences = () => {
       description: "Natural mineral springs in a pristine mountain setting. Multiple pools maintained at optimal temperatures for therapeutic benefit.",
       image: "/springs hero.png",
       alt: "Natural thermal waters at The Springs",
-      buttonText: "Reserve Soaks",
+      buttonText: "Book Now",
       buttonAction: () => handleBookExperience('soak')
     },
     {
@@ -24,7 +24,7 @@ const CuratedExperiences = () => {
       description: "Personalized therapeutic treatments by master practitioners. Each session is tailored to restore balance and vitality.",
       image: "/spaservices.jpg",
       alt: "Wellness treatments and spa services",
-      buttonText: "Book Consultation",
+      buttonText: "Book Spa Treatment",
       buttonAction: () => handleBookExperience('spa')
     },
     {
@@ -32,7 +32,7 @@ const CuratedExperiences = () => {
       description: "Exclusive access to private thermal pools and treatment spaces. Perfect for intimate celebrations or corporate retreats.",
       image: "/PrivateHotSprings.jpg",
       alt: "Private hot springs sanctuary",
-      buttonText: "Inquire Access",
+      buttonText: "Request Private Sanctuary",
       buttonAction: () => handleBookExperience('private_tub')
     }
   ];
@@ -42,11 +42,11 @@ const CuratedExperiences = () => {
       <div className="luxury-container">
         <div className="text-center mb-16">
           <h2 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">
-            Curated Experiences
+            Choose Your Experience
           </h2>
           <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
           <p className="font-avenir text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Three carefully crafted experiences designed for the discerning guest
+            Three ways to enjoy The Springs
           </p>
         </div>
 

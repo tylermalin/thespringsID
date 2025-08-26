@@ -4,6 +4,62 @@ import { useNavigate } from "react-router-dom";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
+import SeasonalGallery from "@/components/SeasonalGallery";
+
+// Custom Luxury Icons
+const RelaxIcon = () => (
+  <div className="relative w-16 h-16 mx-auto mb-6">
+    <div className="absolute inset-0 bg-gradient-to-br from-luxury/20 to-luxury/10 rounded-full"></div>
+    <div className="absolute inset-2 bg-gradient-to-br from-luxury to-luxury/80 rounded-full flex items-center justify-center">
+      <div className="w-8 h-8 relative">
+        {/* Mountain silhouette with steam */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-4 bg-white/90 rounded-t-full"></div>
+        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-3 bg-white/90 rounded-t-full"></div>
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white/90 rounded-t-full"></div>
+        {/* Steam wisps */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-2 bg-white/60 rounded-full opacity-60"></div>
+        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-1.5 bg-white/60 rounded-full opacity-40"></div>
+      </div>
+    </div>
+  </div>
+);
+
+const EnjoyIcon = () => (
+  <div className="relative w-16 h-16 mx-auto mb-6">
+    <div className="absolute inset-0 bg-gradient-to-br from-luxury/20 to-luxury/10 rounded-full"></div>
+    <div className="absolute inset-2 bg-gradient-to-br from-luxury to-luxury/80 rounded-full flex items-center justify-center">
+      <div className="w-8 h-8 relative">
+        {/* Sun with rays */}
+        <div className="absolute inset-0 bg-white/90 rounded-full"></div>
+        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-2 bg-white/90 rounded-full"></div>
+        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-2 bg-white/90 rounded-full"></div>
+        <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 w-2 h-0.5 bg-white/90 rounded-full"></div>
+        <div className="absolute top-1/2 -right-1 transform -translate-y-1/2 w-2 h-0.5 bg-white/90 rounded-full"></div>
+        <div className="absolute top-1 -left-1 w-1 h-1 bg-white/90 rounded-full"></div>
+        <div className="absolute top-1 -right-1 w-1 h-1 bg-white/90 rounded-full"></div>
+        <div className="absolute bottom-1 -left-1 w-1 h-1 bg-white/90 rounded-full"></div>
+        <div className="absolute bottom-1 -right-1 w-1 h-1 bg-white/90 rounded-full"></div>
+      </div>
+    </div>
+  </div>
+);
+
+const EscapeIcon = () => (
+  <div className="relative w-16 h-16 mx-auto mb-6">
+    <div className="absolute inset-0 bg-gradient-to-br from-luxury/20 to-luxury/10 rounded-full"></div>
+    <div className="absolute inset-2 bg-gradient-to-br from-luxury to-luxury/80 rounded-full flex items-center justify-center">
+      <div className="w-8 h-8 relative">
+        {/* Compass/Adventure symbol */}
+        <div className="absolute inset-0 border-2 border-white/90 rounded-full"></div>
+        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-3 bg-white/90 rounded-full"></div>
+        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-3 bg-white/90 rounded-full"></div>
+        <div className="absolute left-1 top-1/2 transform -translate-y-1/2 w-3 h-0.5 bg-white/90 rounded-full"></div>
+        <div className="absolute right-1 top-1/2 transform -translate-y-1/2 w-3 h-0.5 bg-white/90 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-white/90 rounded-full"></div>
+      </div>
+    </div>
+  </div>
+);
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -20,7 +76,7 @@ const AboutPage = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/hero-hot-springs.jpg"
+            src="/springsinteriornight.jpg"
             alt="Our Story"
             className="w-full h-full object-cover"
           />
@@ -130,21 +186,21 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="w-16 h-px bg-luxury mx-auto mb-6"></div>
+              <RelaxIcon />
               <h3 className="font-canela text-2xl text-primary mb-4">RELAX</h3>
               <p className="font-avenir text-muted-foreground font-light leading-relaxed">
                 We provide a peaceful mountain sanctuary where guests can truly relax and unwind in natural thermal waters.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-px bg-luxury mx-auto mb-6"></div>
+              <EnjoyIcon />
               <h3 className="font-canela text-2xl text-primary mb-4">ENJOY</h3>
               <p className="font-avenir text-muted-foreground font-light leading-relaxed">
                 We create memorable experiences that allow guests to enjoy the beauty and tranquility of the Idaho mountains.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-px bg-luxury mx-auto mb-6"></div>
+              <EscapeIcon />
               <h3 className="font-canela text-2xl text-primary mb-4">ESCAPE</h3>
               <p className="font-avenir text-muted-foreground font-light leading-relaxed">
                 We offer a true escape from the everyday, providing a mountain getaway with much to see and experience.
@@ -157,14 +213,43 @@ const AboutPage = () => {
       {/* Year-Round Experience */}
       <section className="luxury-section bg-secondary">
         <div className="luxury-container">
-          <div className="text-center">
+          <div className="text-center mb-16">
             <h2 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">
               Year-Round Mountain Experience
             </h2>
             <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
-            <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide mb-8">
+            <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
               We have you covered all year long. Our temperature-controlled pools can be cooled on warm days and heated on cool days, ensuring the perfect temperature for your visit regardless of the season.
             </p>
+          </div>
+
+          {/* Seasonal Galleries */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <SeasonalGallery
+              season="winter"
+              title="Winter Wonderland"
+              description="Cozy up in our warm thermal waters while surrounded by snow-covered mountains"
+              images={[
+                '/privatetubssnow.jpg',
+                '/pubpoolsnow.jpg',
+                '/privatetubswinternight.jpg',
+                '/privatetubswinternightexterior.jpg'
+              ]}
+            />
+            <SeasonalGallery
+              season="summer"
+              title="Summer Serenity"
+              description="Enjoy refreshing soaks with mountain views and perfect temperatures"
+              images={[
+                '/privatetubssummer.jpg',
+                '/pubpoolsummer.jpg',
+                '/privatetubssummer.png',
+                '/privatetubssummerwithguest.jpg'
+              ]}
+            />
+          </div>
+
+          <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 

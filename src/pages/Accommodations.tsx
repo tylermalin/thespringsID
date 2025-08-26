@@ -2,10 +2,11 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { Bed, Wifi, Coffee, Tv, Users, Utensils } from "lucide-react";
+import { Bed, Wifi, Coffee, Tv, Users, Utensils, Mountain, Snowflake, Car } from "lucide-react";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
+import RoomImageGallery from "@/components/RoomImageGallery";
 
 const AccommodationsPage = () => {
   const navigate = useNavigate();
@@ -22,7 +23,8 @@ const AccommodationsPage = () => {
       occupancy: 'Base 2, Max 4 adults',
       beds: '1 Double Queen',
       description: 'Comfortable room with two queen beds, perfect for families or small groups.',
-      features: ['Free WiFi', '42" flat screen TV', 'Keurig coffee maker', 'Room refrigerator']
+      features: ['Free WiFi', '42" flat screen TV', 'Keurig coffee maker', 'Room refrigerator'],
+      images: ['/inntwoqueen.jpg', '/inqueen.jpg', '/restroom.webp', '/restshower.webp']
     },
     {
       type: 'NK',
@@ -31,7 +33,8 @@ const AccommodationsPage = () => {
       occupancy: 'Base 2, Max 2 adults',
       beds: '1 King',
       description: 'Spacious room with a king bed, ideal for couples seeking comfort and privacy.',
-      features: ['Free WiFi', '42" flat screen TV', 'Keurig coffee maker', 'Room refrigerator']
+      features: ['Free WiFi', '42" flat screen TV', 'Keurig coffee maker', 'Room refrigerator'],
+      images: ['/one king.webp', '/restroom.webp', '/restshower.webp']
     },
     {
       type: 'NC',
@@ -40,7 +43,8 @@ const AccommodationsPage = () => {
       occupancy: 'Base 2, Max 6 adults',
       beds: '1 King, 1 Full, 1 Pull-out Queen',
       description: 'Full cabin experience with kitchen and living space, perfect for larger groups or extended stays.',
-      features: ['Full kitchen', 'Washer & dryer', 'Dishwasher', 'Living room', 'Complete dish sets']
+      features: ['Full kitchen', 'Washer & dryer', 'Dishwasher', 'Living room', 'Complete dish sets'],
+      images: ['/innthepinesexterior.jpg', '/innthepines.jpg', '/inn-room.jpg']
     }
   ];
 
@@ -50,7 +54,9 @@ const AccommodationsPage = () => {
     { icon: <Coffee className="w-5 h-5" />, title: 'Keurig Coffee Maker', description: 'In-room coffee service' },
     { icon: <Bed className="w-5 h-5" />, title: 'Premium Bedding', description: 'Comfortable and clean linens' },
     { icon: <Users className="w-5 h-5" />, title: 'Complimentary Toiletries', description: 'Shampoo, conditioner, shower gel, body lotion' },
-    { icon: <Utensils className="w-5 h-5" />, title: 'Room Refrigerator', description: 'Keep your refreshments cool' }
+    { icon: <Utensils className="w-5 h-5" />, title: 'Room Refrigerator', description: 'Keep your refreshments cool' },
+    { icon: <Mountain className="w-5 h-5" />, title: 'Mountain Views', description: 'Stunning Idaho mountain scenery' },
+    { icon: <Car className="w-5 h-5" />, title: 'Free Parking', description: 'Convenient on-site parking' }
   ];
 
   return (
@@ -86,7 +92,7 @@ const AccommodationsPage = () => {
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={() => handleBookNow('NK')}
               >
-                Book Your Stay
+                Reserve Your Room
               </Button>
             </div>
           </div>
@@ -138,7 +144,16 @@ const AccommodationsPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {roomTypes.map((room, index) => (
-              <Card key={index} className="border-0 bg-card hover:shadow-lg transition-shadow">
+              <Card key={index} className="border-0 bg-card hover:shadow-lg transition-shadow overflow-hidden">
+                {/* Auto-advancing Gallery */}
+                <div className="p-6 pb-0">
+                  <RoomImageGallery 
+                    images={room.images} 
+                    alt={room.name}
+                    className="mb-6"
+                  />
+                </div>
+                
                 <CardHeader>
                   <CardTitle className="font-canela text-2xl">{room.name}</CardTitle>
                   <div className="flex items-center justify-between">
@@ -172,13 +187,33 @@ const AccommodationsPage = () => {
                     </ul>
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full"
-                    onClick={() => handleBookNow(room.type)}
-                  >
-                    Book {room.name}
-                  </Button>
+                  <div className="space-y-2">
+                    <Button 
+                      variant="outline" 
+                      className="w-full"
+                      onClick={() => handleBookNow(room.type)}
+                    >
+                      Book {room.name}
+                    </Button>
+                    {room.type === 'NQQ' && (
+                      <Button 
+                        variant="ghost" 
+                        className="w-full text-luxury hover:text-luxury/80"
+                        onClick={() => navigate('/double-queen-gallery')}
+                      >
+                        View Photo Gallery
+                      </Button>
+                    )}
+                    {room.type === 'NK' && (
+                      <Button 
+                        variant="ghost" 
+                        className="w-full text-luxury hover:text-luxury/80"
+                        onClick={() => navigate('/king-gallery')}
+                      >
+                        View Photo Gallery
+                      </Button>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -293,7 +328,7 @@ const AccommodationsPage = () => {
                 className="font-avenir"
                 onClick={() => handleBookNow('NK')}
               >
-                Book Your Stay
+                Reserve Your Room
               </Button>
               <Button 
                 variant="outline" 
