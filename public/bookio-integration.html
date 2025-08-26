@@ -68,6 +68,52 @@
             width: 100%;
         }
         
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .fallback {
+            text-align: center;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .contact-info {
+            background: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-info h3 {
+            color: #0c5460;
+            margin-top: 0;
+        }
+        
+        .contact-info p {
+            margin: 10px 0;
+            color: #0c5460;
+        }
+        
         .footer {
             text-align: center;
             color: #7f8c8d;
@@ -100,15 +146,49 @@
         <div class="booking-container">
             <a href="/" class="back-link">← Back to The Springs</a>
             
-            <!-- Bookio Widget Integration -->
-            <script type="text/javascript" src="https://bookeo.com/widget.js?a=2146MJM3N198CFAA0706"></script>
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <div class="loading-spinner"></div>
+                <h3>Loading Booking System...</h3>
+                <p>Please wait while we connect you to our reservation platform.</p>
+            </div>
             
-            <!-- Fallback if widget doesn't load -->
-            <div id="widget-fallback" style="display: none; text-align: center; padding: 40px;">
-                <h3>Booking Widget Loading...</h3>
-                <p>If the booking widget doesn't appear, please contact us directly:</p>
-                <p><strong>Phone:</strong> (208) 392-7680</p>
-                <p><strong>Email:</strong> info@thespringsid.com</p>
+            <!-- Bookio Widget Container -->
+            <div id="widget-container" style="display: none;">
+                <!-- Widget will be loaded here -->
+            </div>
+            
+            <!-- Alternative iframe integration -->
+            <div id="iframe-fallback" style="display: none;">
+                <h3>Direct Booking System</h3>
+                <p>If the widget above doesn't load, you can use our direct booking system:</p>
+                <iframe 
+                    src="https://bookeo.com/2146MJM3N198CFAA0706" 
+                    width="100%" 
+                    height="700" 
+                    frameborder="0"
+                    style="border: 1px solid #ddd; border-radius: 8px;"
+                    title="The Springs Booking System">
+                </iframe>
+            </div>
+            
+            <!-- Fallback Contact Information -->
+            <div id="fallback" class="fallback" style="display: none;">
+                <h3>Booking System Temporarily Unavailable</h3>
+                <p>We're experiencing technical difficulties with our online booking system.</p>
+                <p>Please contact us directly to make your reservation:</p>
+                
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Phone:</strong> <a href="tel:2083927680">(208) 392-7680</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@thespringsid.com">info@thespringsid.com</a></p>
+                    <p><strong>Hours:</strong> Daily 9:00 AM - 9:00 PM</p>
+                    <p><strong>Address:</strong> 3764 Hwy 21, Idaho City, ID 83631</p>
+                </div>
+                
+                <p style="margin-top: 20px;">
+                    <a href="/" class="back-link">← Return to The Springs</a>
+                </p>
             </div>
         </div>
         
@@ -118,13 +198,98 @@
     </div>
     
     <script>
-        // Show fallback if widget doesn't load within 10 seconds
-        setTimeout(function() {
-            const widget = document.querySelector('iframe[src*="bookeo.com"]');
+        // Function to load Bookio widget
+        function loadBookioWidget() {
+            try {
+                // Create script element
+                const script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'https://bookeo.com/widget.js?a=2146MJM3N198CFAA0706';
+                script.async = true;
+                
+                // Handle script load success
+                script.onload = function() {
+                    console.log('Bookio widget script loaded successfully');
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('widget-container').style.display = 'block';
+                    
+                    // Check if widget actually rendered
+                    setTimeout(checkWidgetRendered, 3000);
+                };
+                
+                // Handle script load error
+                script.onerror = function() {
+                    console.error('Failed to load Bookio widget script');
+                    showFallback();
+                };
+                
+                // Append script to container
+                document.getElementById('widget-container').appendChild(script);
+                
+            } catch (error) {
+                console.error('Error loading Bookio widget:', error);
+                showFallback();
+            }
+        }
+        
+        // Function to check if widget rendered
+        function checkWidgetRendered() {
+            const widget = document.querySelector('iframe[src*="bookeo.com"]') || 
+                          document.querySelector('div[class*="bookeo"]') ||
+                          document.querySelector('form[action*="bookeo"]');
+            
             if (!widget) {
-                document.getElementById('widget-fallback').style.display = 'block';
+                console.log('Bookio widget not detected, showing fallback');
+                showFallback();
+            } else {
+                console.log('Bookio widget detected and working');
+            }
+        }
+        
+        // Function to show iframe fallback
+        function showIframeFallback() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('widget-container').style.display = 'none';
+            document.getElementById('iframe-fallback').style.display = 'block';
+        }
+        
+        // Function to show contact fallback
+        function showFallback() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('widget-container').style.display = 'none';
+            document.getElementById('iframe-fallback').style.display = 'none';
+            document.getElementById('fallback').style.display = 'block';
+        }
+        
+        // Load widget when page loads
+        window.addEventListener('load', function() {
+            // Add a small delay to ensure page is fully loaded
+            setTimeout(loadBookioWidget, 500);
+        });
+        
+        // Fallback timeout - if nothing loads in 10 seconds, try iframe fallback
+        setTimeout(function() {
+            const widget = document.querySelector('iframe[src*="bookeo.com"]') || 
+                          document.querySelector('div[class*="bookeo"]') ||
+                          document.querySelector('form[action*="bookeo"]');
+            
+            if (!widget && document.getElementById('loading').style.display !== 'none') {
+                console.log('Widget timeout - trying iframe fallback');
+                showIframeFallback();
             }
         }, 10000);
+        
+        // Final fallback timeout - if iframe also fails, show contact info
+        setTimeout(function() {
+            const widget = document.querySelector('iframe[src*="bookeo.com"]') || 
+                          document.querySelector('div[class*="bookeo"]') ||
+                          document.querySelector('form[action*="bookeo"]');
+            
+            if (!widget && document.getElementById('iframe-fallback').style.display === 'block') {
+                console.log('Iframe fallback timeout - showing contact fallback');
+                showFallback();
+            }
+        }, 25000);
     </script>
 </body>
 </html>
