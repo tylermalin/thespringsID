@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock, Users, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,15 +9,18 @@ import { useToast } from "@/hooks/use-toast";
 import { useBooking } from "@/contexts/BookingContext";
 import DateSelector from "@/components/booking/DateSelector";
 import PartySelector from "@/components/booking/PartySelector";
+import TimeSelector from "@/components/booking/TimeSelector";
+import UpsellSection from "@/components/booking/UpsellSection";
+import CheckoutSection from "@/components/booking/CheckoutSection";
+import { useEffect, useState } from "react";
 
 // Booking flow steps
 const STEPS = [
   { id: 'choose', label: 'Choose Experience', icon: Calendar },
   { id: 'date', label: 'Date & Party', icon: Users },
-  { id: 'options', label: 'Select Options', icon: Clock },
+  { id: 'time', label: 'Select Time', icon: Clock },
   { id: 'addons', label: 'Add-ons', icon: Calendar },
-  { id: 'details', label: 'Guest Details', icon: Users },
-  { id: 'payment', label: 'Payment', icon: CreditCard },
+  { id: 'checkout', label: 'Checkout', icon: CreditCard },
 ];
 
 // Product types
@@ -64,12 +67,49 @@ const PRODUCT_TYPES = [
   }
 ];
 
+// Mock data for time slots
+const MOCK_TIME_SLOTS = [
+  { id: '9am', time: '9:00 AM', available: true, price: 35, capacity: 20, remaining: 15 },
+  { id: '11am', time: '11:00 AM', available: true, price: 35, capacity: 20, remaining: 8 },
+  { id: '1pm', time: '1:00 PM', available: true, price: 35, capacity: 20, remaining: 12 },
+  { id: '3pm', time: '3:00 PM', available: true, price: 35, capacity: 20, remaining: 20 },
+  { id: '5pm', time: '5:00 PM', available: false, price: 35, capacity: 20, remaining: 0 },
+  { id: '7pm', time: '7:00 PM', available: true, price: 40, capacity: 15, remaining: 10 },
+];
+
+// Mock data for add-ons
+const MOCK_ADDONS = [
+  { sku: 'towels', name: 'Premium Towels', description: 'Luxury towels for your comfort', price: 5, category: 'amenities', qty: 0 },
+  { sku: 'robes', name: 'Plush Robes', description: 'Comfortable robes for your stay', price: 8, category: 'amenities', qty: 0 },
+  { sku: 'locker', name: 'Private Locker', description: 'Secure storage for your belongings', price: 3, category: 'amenities', qty: 0 },
+  { sku: 'refreshments', name: 'Refreshments', description: 'Complimentary tea and water', price: 0, category: 'amenities', qty: 0 },
+  { sku: 'aromatherapy', name: 'Aromatherapy', description: 'Essential oils for relaxation', price: 15, category: 'spa', qty: 0 },
+  { sku: 'hot_stone', name: 'Hot Stone Therapy', description: 'Heated stones for deep relaxation', price: 25, category: 'spa', qty: 0 },
+  { sku: 'champagne', name: 'Champagne Service', description: 'Bottle of champagne with glasses', price: 45, category: 'luxury', qty: 0 },
+  { sku: 'chocolates', name: 'Artisan Chocolates', description: 'Handcrafted chocolates', price: 12, category: 'luxury', qty: 0 },
+  { sku: 'breakfast', name: 'Breakfast Service', description: 'Continental breakfast delivered', price: 18, category: 'inn', qty: 0 },
+  { sku: 'late_checkout', name: 'Late Checkout', description: 'Extended checkout until 2 PM', price: 25, category: 'inn', qty: 0 },
+];
+
 const Booking = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   const { state, dispatch, nextStep, prevStep } = useBooking();
+  const [timeSlots, setTimeSlots] = useState(MOCK_TIME_SLOTS);
+  const [addons] = useState(MOCK_ADDONS);
+  const [loading, setLoading] = useState(false);
 
   const progress = ((state.currentStep + 1) / STEPS.length) * 100;
+
+  // Handle pre-selected product from navigation
+  useEffect(() => {
+    if (location.state?.selectedProduct && !state.selectedProduct) {
+      dispatch({ type: 'SELECT_PRODUCT', payload: location.state.selectedProduct });
+      // Skip the product selection step if pre-selected
+      dispatch({ type: 'SET_STEP', payload: 1 });
+    }
+  }, [location.state, state.selectedProduct, dispatch]);
 
   const handleProductSelect = (productId: string) => {
     dispatch({ type: 'SELECT_PRODUCT', payload: productId });
@@ -81,6 +121,51 @@ const Booking = () => {
 
   const handlePartyChange = (party: { adults: number; children: number }) => {
     dispatch({ type: 'SET_PARTY', payload: party });
+  };
+
+  const handleTimeSelect = (timeSlotId: string) => {
+    dispatch({ type: 'SELECT_TIME_SLOT', payload: timeSlotId });
+  };
+
+  const handleAddAddon = (addon: any) => {
+    dispatch({ type: 'ADD_ADDON', payload: addon });
+  };
+
+  const handleRemoveAddon = (sku: string) => {
+    dispatch({ type: 'REMOVE_ADDON', payload: sku });
+  };
+
+  const handleUpdateAddonQuantity = (sku: string, qty: number) => {
+    dispatch({ type: 'UPDATE_ADDON_QUANTITY', payload: { sku, qty } });
+  };
+
+  const handleGuestInfoChange = (field: string, value: string | boolean) => {
+    dispatch({ type: 'UPDATE_GUEST', payload: { [field]: value } });
+  };
+
+  const handleCompleteBooking = async () => {
+    setLoading(true);
+    try {
+      // Simulate booking process
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      toast({
+        title: "Booking Confirmed!",
+        description: "Your reservation has been successfully created. You'll receive a confirmation email shortly.",
+      });
+      
+      // Reset booking state and redirect to home
+      dispatch({ type: 'RESET_BOOKING' });
+      navigate('/');
+    } catch (error) {
+      toast({
+        title: "Booking Failed",
+        description: "There was an error processing your booking. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleBack = () => {
@@ -178,6 +263,79 @@ const Booking = () => {
               </Button>
             </div>
           </div>
+        );
+
+      case 2:
+        return (
+          <div className="space-y-6">
+            <TimeSelector
+              timeSlots={timeSlots}
+              selectedTimeSlot={state.selectedTimeSlot}
+              onTimeSelect={handleTimeSelect}
+            />
+            
+            <div className="flex justify-between">
+              <Button variant="outline" onClick={handleBack}>
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back
+              </Button>
+              <Button 
+                onClick={() => nextStep()}
+                disabled={!state.selectedTimeSlot}
+              >
+                Continue
+              </Button>
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className="space-y-6">
+            <UpsellSection
+              addons={addons}
+              selectedAddons={state.addons}
+              onAddAddon={handleAddAddon}
+              onRemoveAddon={handleRemoveAddon}
+              onUpdateQuantity={handleUpdateAddonQuantity}
+              productType={state.selectedProduct || ''}
+            />
+            
+            <div className="flex justify-between">
+              <Button variant="outline" onClick={handleBack}>
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back
+              </Button>
+              <Button onClick={() => nextStep()}>
+                Continue to Checkout
+              </Button>
+            </div>
+          </div>
+        );
+
+      case 4:
+        const selectedTimeSlot = timeSlots.find(slot => slot.id === state.selectedTimeSlot);
+        const bookingSummary = {
+          product: state.selectedProduct || '',
+          date: state.selectedDate || '',
+          time: selectedTimeSlot?.time || '',
+          party: state.party,
+          addons: state.addons.map(addon => ({
+            name: addon.name,
+            qty: addon.qty,
+            price: addon.price
+          })),
+          total: selectedTimeSlot ? selectedTimeSlot.price + state.addons.reduce((sum, addon) => sum + (addon.price * addon.qty), 0) : 0
+        };
+
+        return (
+          <CheckoutSection
+            bookingSummary={bookingSummary}
+            guestInfo={state.guest}
+            onGuestInfoChange={handleGuestInfoChange}
+            onCompleteBooking={handleCompleteBooking}
+            loading={loading}
+          />
         );
 
       default:
