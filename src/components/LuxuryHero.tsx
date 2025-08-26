@@ -30,7 +30,7 @@ const LuxuryHero = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="flex justify-center">
             <img 
-              src="/springslogo.png" 
+              src="/springstransparent.png" 
               alt="The Springs" 
               className="h-24 md:h-32 w-auto opacity-90"
             />
