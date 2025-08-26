@@ -70,9 +70,82 @@ const InteractiveMap: React.FC = () => {
   };
 
   useEffect(() => {
-    // For now, we'll use a static map image until Google Maps API key is configured
-    setMapLoaded(true);
+    // Load Google Maps script with API key
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAYUXDk9Hr57guIG9Ut0t0aGZEpu4ap_HM&libraries=places`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      setMapLoaded(true);
+      initMap();
+    };
+    script.onerror = () => {
+      console.error('Failed to load Google Maps');
+      setMapLoaded(true); // Show fallback
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.querySelector('script[src*="maps.googleapis.com"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
   }, [selectedLocation]);
+
+  const initMap = () => {
+    if (!mapLoaded || !(window as any).google) return;
+
+    const mapElement = document.getElementById('map');
+    if (!mapElement) return;
+
+    try {
+      const map = new (window as any).google.maps.Map(mapElement, {
+        center: currentLocation.coordinates,
+        zoom: 15,
+        mapTypeId: (window as any).google.maps.MapTypeId.ROADMAP,
+        styles: [
+          {
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+          },
+          {
+            featureType: "transit",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+          }
+        ]
+      });
+
+      // Add marker
+      new (window as any).google.maps.Marker({
+        position: currentLocation.coordinates,
+        map: map,
+        title: currentLocation.name,
+        animation: (window as any).google.maps.Animation.DROP
+      });
+
+      // Add info window
+      const infoWindow = new (window as any).google.maps.InfoWindow({
+        content: `
+          <div style="padding: 10px; max-width: 200px;">
+            <h3 style="margin: 0 0 5px 0; color: #2c3e50;">${currentLocation.name}</h3>
+            <p style="margin: 0; color: #7f8c8d; font-size: 14px;">${currentLocation.address}</p>
+            <p style="margin: 5px 0 0 0; color: #7f8c8d; font-size: 12px;">${currentLocation.hours}</p>
+          </div>
+        `
+      });
+
+      // Show info window on marker click
+      (window as any).google.maps.event.addListener(map, 'click', () => {
+        infoWindow.close();
+      });
+
+    } catch (error) {
+      console.error('Error initializing map:', error);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -107,21 +180,17 @@ const InteractiveMap: React.FC = () => {
         <CardContent className="p-0">
           <div 
             id="map" 
-            className="w-full h-80 bg-muted relative"
+            className="w-full h-80 bg-muted"
             style={{ minHeight: '320px' }}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-luxury mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-primary mb-2">{currentLocation.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{currentLocation.address}</p>
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 max-w-xs mx-auto">
-                  <p className="text-xs text-muted-foreground">
-                    Interactive map coming soon with Google Maps integration
-                  </p>
+            {!mapLoaded && (
+              <div className="flex items-center justify-center h-full">
+                <div className="text-center">
+                  <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground">Loading map...</p>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </CardContent>
       </Card>
