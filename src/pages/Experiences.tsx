@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
+import RoomImageGallery from "@/components/RoomImageGallery";
 
 const ExperiencesPage = () => {
   const navigate = useNavigate();
@@ -148,7 +149,29 @@ const ExperiencesPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="border-0 bg-card hover:shadow-lg transition-shadow">
+            <Card className="border-0 bg-card hover:shadow-lg transition-shadow overflow-hidden">
+              {/* Auto-advancing Gallery */}
+              <div className="p-6 pb-0">
+                <RoomImageGallery 
+                  images={[
+                    '/springs hero.png',
+                    '/pubpoolbubble.jpg',
+                    '/pubpoolday1.jpg',
+                    '/pubpoolevening.jpg',
+                    '/pubpoollight.jpg',
+                    '/pubpoolsnow.jpg',
+                    '/pubpoolsteam.jpg',
+                    '/pubpoolsummer.jpg',
+                    '/pubpoolsunrise.jpg',
+                    '/pubpoolsunset.jpg',
+                    '/pubsteamynight.jpg',
+                    '/springsinteriornight.jpg'
+                  ]}
+                  alt="General Soak Experience"
+                  className="mb-6"
+                />
+              </div>
+              
               <CardHeader>
                 <CardTitle className="font-canela text-2xl">General Soak</CardTitle>
               </CardHeader>
@@ -179,13 +202,36 @@ const ExperiencesPage = () => {
                     className="w-full text-luxury hover:text-luxury/80"
                     onClick={() => navigate('/public-pools-gallery')}
                   >
-                    View Photo Gallery
+                    View Full Gallery
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-0 bg-card hover:shadow-lg transition-shadow">
+            <Card className="border-0 bg-card hover:shadow-lg transition-shadow overflow-hidden">
+              {/* Auto-advancing Gallery */}
+              <div className="p-6 pb-0">
+                <RoomImageGallery 
+                  images={[
+                    '/pathtoprivatepools.jpg',
+                    '/priv-tubs2_orig.jpg',
+                    '/priv-tubs3_orig.jpg',
+                    '/PrivateHotSprings.jpg',
+                    '/privatepool1.jpg',
+                    '/privatepools.jpg',
+                    '/privatetubsoverhead.jpg',
+                    '/privatetubssnow.jpg',
+                    '/privatetubssummer.jpg',
+                    '/privatetubssummer.png',
+                    '/privatetubssummerwithguest.jpg',
+                    '/privatetubswinternight.jpg',
+                    '/privatetubswinternightexterior.jpg'
+                  ]}
+                  alt="Private Tubs Experience"
+                  className="mb-6"
+                />
+              </div>
+              
               <CardHeader>
                 <CardTitle className="font-canela text-2xl">Private Tubs</CardTitle>
               </CardHeader>
@@ -220,7 +266,7 @@ const ExperiencesPage = () => {
                     className="w-full text-luxury hover:text-luxury/80"
                     onClick={() => navigate('/private-tubs-gallery')}
                   >
-                    View Photo Gallery
+                    View Full Gallery
                   </Button>
                 </div>
               </CardContent>

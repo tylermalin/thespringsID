@@ -1,5 +1,4 @@
-Year-Round Mountain Experience
-We have you covered all year long. Our temperature-controlled pools can be cooled on warm days and heated on cool days, ensuring the perfect temperature for your visit regardless of the season.import React from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
@@ -22,11 +21,11 @@ const TermsOfService = () => {
         <div className="luxury-container">
           <div className="text-center">
             <h1 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">
-              Terms of Service
+              Terms of Service — The Springs Resort & Inn the Pines
             </h1>
             <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
             <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
-              Please read these terms carefully before using our services
+              Last Updated: January 1, 2024
             </p>
           </div>
         </div>
@@ -37,239 +36,193 @@ const TermsOfService = () => {
         <div className="luxury-container">
           <div className="max-w-4xl mx-auto space-y-8">
             
-            {/* Acceptance of Terms */}
+            {/* Agreement to Terms */}
             <Card className="border-0 bg-card">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">1. Acceptance of Terms</CardTitle>
+                <CardTitle className="font-canela text-2xl">1. Agreement to Terms</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="font-avenir text-muted-foreground leading-relaxed">
-                  By accessing and using The Springs website and services, you accept and agree to be bound by the terms and provision of this agreement. 
-                  If you do not agree to abide by the above, please do not use this service.
+                  By accessing or booking with The Springs Resort & Inn the Pines ("The Springs," "we," "our," or "us"), 
+                  you agree to be bound by these Terms of Service ("Terms"). If you do not agree, please do not use our services.
                 </p>
               </CardContent>
             </Card>
 
-            {/* Services Description */}
+            {/* Eligibility */}
             <Card className="border-0 bg-card">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">2. Services Description</CardTitle>
+                <CardTitle className="font-canela text-2xl">2. Eligibility</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="font-avenir text-muted-foreground leading-relaxed">
-                  The Springs provides hot springs facilities, spa services, accommodations, and related wellness experiences. 
-                  Our services include but are not limited to:
+                  You must be at least 18 years old (or the age of majority in your jurisdiction) to make a booking. 
+                  Minors must be accompanied by a parent or legal guardian.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Services */}
+            <Card className="border-0 bg-card">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">3. Services</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="font-avenir text-muted-foreground leading-relaxed">
+                  We provide:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Natural hot springs soaking experiences</li>
-                  <li>Private tub rentals</li>
-                  <li>Spa and massage services</li>
-                  <li>Overnight accommodations at Inn The Pines</li>
-                  <li>Private event hosting</li>
-                  <li>Gift card purchases</li>
+                  <li>Day-use access to thermal pools and hot springs.</li>
+                  <li>Spa & wellness treatments.</li>
+                  <li>Private sanctuary rentals for events and retreats.</li>
+                  <li>Overnight accommodations at Inn the Pines.</li>
+                </ul>
+                <p className="font-avenir text-muted-foreground leading-relaxed">
+                  We may update or adjust our services without notice.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Reservations & Payments */}
+            <Card className="border-0 bg-card">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">4. Reservations & Payments</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <li>All bookings are subject to availability.</li>
+                  <li>Payment is due at the time of booking unless otherwise specified.</li>
+                  <li>Prices are listed in USD and subject to applicable taxes.</li>
+                  <li>Cancellation and refund policies are outlined at checkout and on confirmation emails.</li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Reservations and Cancellations */}
+            {/* Guest Conduct */}
             <Card className="border-0 bg-card">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">3. Reservations and Cancellations</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Reservations</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      All services require advance reservations. Walk-ins are not accepted. Reservations can be made online or by phone.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Cancellation Policy</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      Cancellations must be made 24 hours in advance for a full refund. Late cancellations or no-shows may result in charges.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Modifications</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      Changes to reservations are subject to availability and may incur additional charges.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Health and Safety */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">4. Health and Safety</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Health Considerations</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      Hot springs use may not be suitable for everyone. Consult with your healthcare provider if you have health conditions, 
-                      are pregnant, or have concerns about hot water exposure.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Safety Rules</h4>
-                    <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                      <li>No lifeguards on duty - swim at your own risk</li>
-                      <li>Children under 16 must be supervised by adults 18+</li>
-                      <li>No outside food or beverages allowed</li>
-                      <li>Follow posted safety guidelines and staff instructions</li>
-                      <li>No glass containers in pool areas</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Age Restrictions */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">5. Age Restrictions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">General Soak</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      All ages welcome on weekends and Sundays until 7:00 PM. Adults only (18+) on Monday, Thursday, Friday, and Saturday/Sunday evenings.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Private Tubs</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      Adults 18+ only. Valid ID may be required.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Spa Services</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      Adults 18+ only. Some treatments may have additional age restrictions.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Payment and Pricing */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">6. Payment and Pricing</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Pricing</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      All prices are subject to change without notice. Current rates are available on our website and by phone.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Payment</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      Payment is required at the time of booking. We accept all major credit cards. Cash payments may be accepted on-site.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2">Taxes and Fees</h4>
-                    <p className="font-avenir text-muted-foreground leading-relaxed">
-                      All rates exclude applicable taxes and fees. A 5% service fee may apply to certain services.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Conduct and Behavior */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">7. Conduct and Behavior</CardTitle>
+                <CardTitle className="font-canela text-2xl">5. Guest Conduct</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We reserve the right to refuse service or ask guests to leave for inappropriate behavior, including but not limited to:
+                  To ensure the safety and comfort of all guests, you agree to:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Disruptive or unsafe behavior</li>
-                  <li>Violation of facility rules</li>
-                  <li>Intoxication or drug use</li>
-                  <li>Harassment of other guests or staff</li>
-                  <li>Damage to property</li>
+                  <li>Follow posted rules for pool and spa use.</li>
+                  <li>Refrain from disruptive or unsafe behavior.</li>
+                  <li>Respect staff instructions and property guidelines.</li>
                 </ul>
-              </CardContent>
-            </Card>
-
-            {/* Liability and Indemnification */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">8. Liability and Indemnification</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
                 <p className="font-avenir text-muted-foreground leading-relaxed">
-                  By using our services, you agree to release The Springs from liability for any injuries, damages, or losses that may occur 
-                  during your visit, except in cases of gross negligence. You agree to indemnify and hold harmless The Springs from any claims 
-                  arising from your use of our facilities.
+                  We reserve the right to refuse service or remove guests who violate these rules.
                 </p>
               </CardContent>
             </Card>
 
-            {/* Privacy and Data */}
+            {/* Intellectual Property */}
             <Card className="border-0 bg-card">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">9. Privacy and Data</CardTitle>
+                <CardTitle className="font-canela text-2xl">6. Intellectual Property</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="font-avenir text-muted-foreground leading-relaxed">
-                  Your privacy is important to us. Please review our Privacy Policy for information about how we collect, use, and protect your personal information.
+                  All content on our website, including logos, images, text, and design, is owned by The Springs 
+                  and may not be copied or distributed without written permission.
                 </p>
               </CardContent>
             </Card>
 
-            {/* Modifications to Terms */}
+            {/* Third-Party Services */}
             <Card className="border-0 bg-card">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">10. Modifications to Terms</CardTitle>
+                <CardTitle className="font-canela text-2xl">7. Third-Party Services</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. 
-                  Continued use of our services constitutes acceptance of modified terms.
+                  We may integrate third-party tools (e.g., Google Maps, Stripe, booking platforms). 
+                  We are not responsible for the practices of these services.
                 </p>
               </CardContent>
             </Card>
 
-            {/* Contact Information */}
+            {/* Disclaimer of Warranties */}
             <Card className="border-0 bg-card">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">11. Contact Information</CardTitle>
+                <CardTitle className="font-canela text-2xl">8. Disclaimer of Warranties</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="font-avenir text-muted-foreground leading-relaxed">
-                  If you have questions about these terms, please contact us:
+                  Our services are provided "as is." We make no warranties about uninterrupted service, 
+                  availability, or fitness for a particular purpose.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Limitation of Liability */}
+            <Card className="border-0 bg-card">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">9. Limitation of Liability</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="font-avenir text-muted-foreground leading-relaxed">
+                  To the fullest extent permitted by law, The Springs is not liable for indirect, incidental, 
+                  or consequential damages. Our liability for direct damages shall not exceed the amount paid 
+                  for the specific service booked.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Indemnification */}
+            <Card className="border-0 bg-card">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">10. Indemnification</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="font-avenir text-muted-foreground leading-relaxed">
+                  You agree to indemnify and hold us harmless from any claims, liabilities, or damages 
+                  resulting from your use of our services or breach of these Terms.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Governing Law & Dispute Resolution */}
+            <Card className="border-0 bg-card">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">11. Governing Law & Dispute Resolution</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="font-avenir text-muted-foreground leading-relaxed">
+                  These Terms are governed by the laws of the State of Idaho. Any disputes shall be resolved 
+                  in the courts of Ada County, Idaho, unless arbitration is mutually agreed.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Changes to Terms */}
+            <Card className="border-0 bg-card">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">12. Changes to Terms</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="font-avenir text-muted-foreground leading-relaxed">
+                  We may update these Terms from time to time. Updates will be posted on our website 
+                  with a revised "Last Updated" date.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Contact */}
+            <Card className="border-0 bg-card">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">13. Contact</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="font-avenir text-muted-foreground leading-relaxed">
+                  For questions, please contact:
                 </p>
                 <div className="space-y-2 text-muted-foreground">
-                  <p>Phone: (208) 392-9500</p>
                   <p>Email: info@thespringsid.com</p>
-                  <p>Address: 3742 Hwy 21, Idaho City, ID 83631</p>
+                  <p>Phone: (208) 392-7680</p>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Effective Date */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">12. Effective Date</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  These terms are effective as of January 1, 2024, and apply to all services and reservations made on or after this date.
-                </p>
               </CardContent>
             </Card>
           </div>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -44,9 +44,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: "#", name: "Facebook" },
-    { icon: <Instagram className="w-5 h-5" />, href: "#", name: "Instagram" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", name: "Twitter" },
+    { icon: <Facebook className="w-5 h-5" />, href: "https://www.facebook.com/TheSpringsID/", name: "Facebook" },
+    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/thespringsid/?hl=en", name: "Instagram" },
   ];
 
   return (
@@ -109,15 +108,24 @@ const Footer = () => {
               © 2024 The Springs Resort & Inn The Pines. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+              <button 
+                onClick={() => navigate('/terms-of-service')}
+                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
+              >
                 Terms of Service
-              </a>
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+              </button>
+              <button 
+                onClick={() => navigate('/privacy-policy')}
+                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
+              >
                 Privacy Policy
-              </a>
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+              </button>
+              <button 
+                onClick={() => navigate('/accessibility')}
+                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
+              >
                 Accessibility
-              </a>
+              </button>
             </div>
           </div>
         </div>

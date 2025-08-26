@@ -135,6 +135,136 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* History & Significance */}
+      <section className="luxury-section bg-secondary">
+        <div className="luxury-container">
+          <div className="text-center mb-16">
+            <h2 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">
+              History & Significance of The Springs 🌄
+            </h2>
+            <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-card rounded-lg p-8 shadow-sm">
+              <p className="font-avenir text-lg text-muted-foreground font-light leading-relaxed tracking-wide mb-6">
+                The Springs is a modern hot springs resort with roots that trace back to the historic legacy of Idaho's natural mineral springs. Here's a deeper look at its history and significance:
+              </p>
+              
+              {/* Gold Rush Era Image */}
+              <div className="my-8 text-center">
+                <img
+                  src="/historical-idaho-city-1889.jpg"
+                  alt="Idaho City in 1889 - Ore teams and bustling mining town"
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                />
+                <p className="font-avenir text-sm text-muted-foreground mt-3 italic">
+                  Idaho City, 1889 - Gold Rush Era bustling with ore teams and mining activity
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-canela text-2xl text-primary mb-4">Gold Rush Era Origins</h3>
+                  <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide">
+                    Idaho City rose to prominence during the gold rush era in the mid-1800s, when thousands flocked to the area seeking fortune. Naturally occurring hot springs in the region became a much-needed reprieve for miners and settlers after long, grueling days. Hot springs were considered places of healing and social gathering, and local tribes long before Europeans arrived valued them for their restorative properties.
+                  </p>
+                  
+                  {/* Early Hot Springs Use Image */}
+                  <div className="my-8 text-center">
+                    <img
+                      src="/idaho-springs-1800s.webp"
+                      alt="Idaho Springs in the 1800s - early hot springs development"
+                      className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                    />
+                    <p className="font-avenir text-sm text-muted-foreground mt-3 italic">
+                      Idaho Springs in the 1800s - early hot springs development and use
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-canela text-2xl text-primary mb-4">Evolution to Modern Resort</h3>
+                  <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide">
+                    The Springs as it exists today is built on the site of one of these historic bathing spots. Over time, the hot springs transitioned from rustic bathhouses serving pioneers to a thoughtfully developed resort that honors its historical roots while providing modern comforts. The current facility features a large geothermal pool, private hot tubs, spa services, and a peaceful mountain setting, creating a luxurious retreat for wellness and relaxation.
+                  </p>
+                  
+                  {/* Evolution Images Grid */}
+                  <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="text-center">
+                      <img
+                        src="/springshistory.jpg"
+                        alt="Historical Springs Resort - evolution of the hot springs facility"
+                        className="w-full rounded-lg shadow-lg"
+                      />
+                      <p className="font-avenir text-sm text-muted-foreground mt-3 italic">
+                        The Springs Resort - preserving tradition while embracing modern luxury
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <img
+                        src="/springshistory2.jpg"
+                        alt="Springs Resort development - modern amenities and natural setting"
+                        className="w-full rounded-lg shadow-lg"
+                      />
+                      <p className="font-avenir text-sm text-muted-foreground mt-3 italic">
+                        Modern development - geothermal pools and luxury amenities
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-canela text-2xl text-primary mb-4">The Significance of The Springs</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                    <div className="text-center p-4 bg-background rounded-lg">
+                      <div className="w-12 h-px bg-luxury mx-auto mb-3"></div>
+                      <h4 className="font-canela text-lg text-primary mb-2">Historical Continuity</h4>
+                      <p className="font-avenir text-sm text-muted-foreground">
+                        An enduring symbol of how the natural geothermal resources in the Boise Basin have been used for centuries.
+                      </p>
+                    </div>
+                    <div className="text-center p-4 bg-background rounded-lg">
+                      <div className="w-12 h-px bg-luxury mx-auto mb-3"></div>
+                      <h4 className="font-canela text-lg text-primary mb-2">Community Hub</h4>
+                      <p className="font-avenir text-sm text-muted-foreground">
+                        A beloved local spot for both residents and visitors, providing relaxation, wellness, and a social gathering place.
+                      </p>
+                    </div>
+                    <div className="text-center p-4 bg-background rounded-lg">
+                      <div className="w-12 h-px bg-luxury mx-auto mb-3"></div>
+                      <h4 className="font-canela text-lg text-primary mb-2">Tourism Anchor</h4>
+                      <p className="font-avenir text-sm text-muted-foreground">
+                        Along with Inn the Pines and the historic charm of Idaho City, it helps anchor tourism in the area.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-luxury/10 to-luxury/5 p-6 rounded-lg border-l-4 border-luxury">
+                  <h4 className="font-canela text-xl text-primary mb-3">Fun Fact</h4>
+                  <p className="font-avenir text-muted-foreground font-light leading-relaxed">
+                    The hot mineral water at The Springs is naturally heated and rich in minerals, believed to have therapeutic benefits—a tradition cherished by generations.
+                  </p>
+                </div>
+                
+                {/* Springs History Image */}
+                <div className="my-8 text-center">
+                  <img
+                    src="/springs-history.jpg"
+                    alt="Historical Springs Resort - evolution of the hot springs facility"
+                    className="w-full max-w-3xl mx-auto rounded-lg shadow-lg"
+                  />
+                  <p className="font-avenir text-sm text-muted-foreground mt-3 italic">
+                    The Springs Resort - preserving tradition while embracing modern luxury
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Properties */}
       <section className="luxury-section bg-secondary">
         <div className="luxury-container">

@@ -41,7 +41,7 @@ const LuxuryNavigation = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-avenir text-sm font-normal text-foreground hover:text-luxury transition-colors duration-300 tracking-wide"
+                className="font-raleway text-sm font-light text-foreground hover:text-luxury transition-colors duration-300 tracking-wide"
               >
                 {link.label}
               </a>
@@ -80,7 +80,7 @@ const LuxuryNavigation = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-avenir text-foreground hover:text-luxury transition-colors duration-300 font-light text-lg tracking-wide"
+                  className="font-raleway text-foreground hover:text-luxury transition-colors duration-300 font-light text-lg tracking-wide"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

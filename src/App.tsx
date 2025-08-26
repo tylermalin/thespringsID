@@ -21,6 +21,9 @@ import DoubleQueenGallery from "./pages/DoubleQueenGallery";
 import PrivateTubsGallery from "./pages/PrivateTubsGallery";
 import KingGallery from "./pages/KingGallery";
 import PublicPoolsGallery from "./pages/PublicPoolsGallery";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Accessibility from "./pages/Accessibility";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -86,6 +89,9 @@ const App = () => (
             <Route path="/private-tubs-gallery" element={<PrivateTubsGallery />} />
             <Route path="/king-gallery" element={<KingGallery />} />
             <Route path="/public-pools-gallery" element={<PublicPoolsGallery />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/accessibility" element={<Accessibility />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

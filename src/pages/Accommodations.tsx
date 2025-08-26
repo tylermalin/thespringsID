@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Bed, Wifi, Coffee, Tv, Users, Utensils, Mountain, Snowflake, Car } from "lucide-react";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
+import ReviewsSection from "@/components/ReviewsSection";
 import VideoSection from "@/components/VideoSection";
 import RoomImageGallery from "@/components/RoomImageGallery";
 
@@ -44,7 +45,7 @@ const AccommodationsPage = () => {
       beds: '1 King, 1 Full, 1 Pull-out Queen',
       description: 'Full cabin experience with kitchen and living space, perfect for larger groups or extended stays.',
       features: ['Full kitchen', 'Washer & dryer', 'Dishwasher', 'Living room', 'Complete dish sets'],
-      images: ['/innthepinesexterior.jpg', '/innthepines.jpg', '/inn-room.jpg']
+                      images: ['/innthepines.jpg', '/innthepinesexterior.jpg', '/inn-room.jpg', '/innoutside.jpg']
     }
   ];
 
@@ -144,15 +145,15 @@ const AccommodationsPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {roomTypes.map((room, index) => (
-              <Card key={index} className="border-0 bg-card hover:shadow-lg transition-shadow overflow-hidden">
-                {/* Auto-advancing Gallery */}
-                <div className="p-6 pb-0">
-                  <RoomImageGallery 
-                    images={room.images} 
-                    alt={room.name}
-                    className="mb-6"
-                  />
-                </div>
+                          <Card key={index} className="border-0 bg-card hover:shadow-lg transition-shadow overflow-hidden" id={room.type === 'CABIN' ? 'cabin' : undefined}>
+              {/* Auto-advancing Gallery */}
+              <div className="p-6 pb-0">
+                <RoomImageGallery
+                  images={room.images}
+                  alt={room.name}
+                  className="mb-6"
+                />
+              </div>
                 
                 <CardHeader>
                   <CardTitle className="font-canela text-2xl">{room.name}</CardTitle>
@@ -302,7 +303,7 @@ const AccommodationsPage = () => {
             </div>
             <div className="rounded-lg overflow-hidden">
               <img
-                src="/innthepinesexterior.jpg"
+                src="/innthepines.jpg"
                 alt="Cabin experience"
                 className="w-full h-96 object-cover"
               />
@@ -345,6 +346,7 @@ const AccommodationsPage = () => {
 
       {/* Video Section */}
       <VideoSection />
+      <ReviewsSection />
 
       <Footer />
     </div>

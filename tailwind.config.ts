@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				serif: ['canela', 'serif'],
 				sans: ['Avenir Next', 'avenir-next', 'sans-serif'],
+				raleway: ['Raleway', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
