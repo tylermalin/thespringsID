@@ -29,7 +29,7 @@ const LuxuryNavigation = () => {
               className="hover:opacity-80 transition-opacity"
             >
               <img 
-                src="/src/assets/springslogo.png" 
+                src="/springslogo.png" 
                 alt="The Springs" 
                 className="h-12 w-auto"
               />

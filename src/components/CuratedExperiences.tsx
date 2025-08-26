@@ -14,7 +14,7 @@ const CuratedExperiences = () => {
     {
       title: "Thermal Waters",
       description: "Natural mineral springs in a pristine mountain setting. Multiple pools maintained at optimal temperatures for therapeutic benefit.",
-      image: "/src/assets/springs hero.png",
+      image: "/springs hero.png",
       alt: "Natural thermal waters at The Springs",
       buttonText: "Reserve Soaks",
       buttonAction: () => handleBookExperience('soak')
@@ -22,7 +22,7 @@ const CuratedExperiences = () => {
     {
       title: "Wellness Treatments",
       description: "Personalized therapeutic treatments by master practitioners. Each session is tailored to restore balance and vitality.",
-      image: "/src/assets/spaservices.jpg",
+      image: "/spaservices.jpg",
       alt: "Wellness treatments and spa services",
       buttonText: "Book Consultation",
       buttonAction: () => handleBookExperience('spa')
@@ -30,7 +30,7 @@ const CuratedExperiences = () => {
     {
       title: "Private Sanctuary",
       description: "Exclusive access to private thermal pools and treatment spaces. Perfect for intimate celebrations or corporate retreats.",
-      image: "/src/assets/PrivateHotSprings.jpg",
+      image: "/PrivateHotSprings.jpg",
       alt: "Private hot springs sanctuary",
       buttonText: "Inquire Access",
       buttonAction: () => handleBookExperience('private_tub')

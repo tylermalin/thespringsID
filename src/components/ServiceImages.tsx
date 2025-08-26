@@ -6,19 +6,19 @@ const ServiceImages = () => {
     {
       title: "Thermal Waters",
       description: "Natural mineral-rich hot springs",
-      image: "/src/assets/springs hero.png",
+      image: "/springs hero.png",
       alt: "Natural thermal waters at The Springs"
     },
     {
       title: "Wellness Treatments",
       description: "Professional spa and massage services",
-      image: "/src/assets/spaservices.jpg",
+      image: "/spaservices.jpg",
       alt: "Wellness treatments and spa services"
     },
     {
       title: "Private Sanctuary",
       description: "Exclusive private hot spring experiences",
-      image: "/src/assets/PrivateHotSprings.jpg",
+      image: "/PrivateHotSprings.jpg",
       alt: "Private hot springs sanctuary"
     }
   ];

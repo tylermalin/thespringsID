@@ -29,7 +29,7 @@ const PRODUCT_TYPES = [
     description: 'Relax in our natural hot springs pools',
     price: 'from $35',
     duration: '2.5 hours',
-    image: '/src/assets/hero-hot-springs.jpg',
+    image: '/hero-hot-springs.jpg',
     available: true
   },
   {
@@ -39,7 +39,7 @@ const PRODUCT_TYPES = [
     description: 'Your own private hot springs tub',
     price: 'from $85',
     duration: '1 hour',
-    image: '/src/assets/springsinteriornight.jpg',
+    image: '/springsinteriornight.jpg',
     available: true
   },
   {
@@ -49,7 +49,7 @@ const PRODUCT_TYPES = [
     description: 'Professional massage and wellness treatments',
     price: 'from $120',
     duration: '60-90 min',
-    image: '/src/assets/springsinteriornight.jpg',
+    image: '/springsinteriornight.jpg',
     available: true
   },
   {
@@ -59,7 +59,7 @@ const PRODUCT_TYPES = [
     description: 'Cozy rooms with hot springs access',
     price: 'from $199',
     duration: 'Overnight',
-            image: '/src/assets/innthepinesexterior.jpg',
+            image: '/innthepinesexterior.jpg',
     available: true
   }
 ];

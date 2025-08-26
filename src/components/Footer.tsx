@@ -58,7 +58,7 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <img 
-                src="/src/assets/springslogolight.png" 
+                src="/springslogolight.png" 
                 alt="The Springs" 
                 className="h-12 w-auto mb-4"
               />

@@ -21,7 +21,7 @@ const SpaPage = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-                            src="/src/assets/springsinteriornight.jpg"
+                            src="/springsinteriornight.jpg"
             alt="Spa & Wellness"
             className="w-full h-full object-cover"
           />
@@ -190,7 +190,7 @@ const SpaPage = () => {
             </div>
             <div className="rounded-lg overflow-hidden">
               <img
-                src="/src/assets/innthepinesexterior.jpg"
+                src="/innthepinesexterior.jpg"
                 alt="Wellness sanctuary"
                 className="w-full h-96 object-cover"
               />

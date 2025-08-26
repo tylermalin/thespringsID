@@ -23,9 +23,9 @@ const VideoSection = () => {
             <video
               className="w-full h-auto"
               controls
-              poster="/src/assets/hero-hot-springs.jpg"
+              poster="/hero-hot-springs.jpg"
             >
-              <source src="/src/assets/the spring temp vid.mp4" type="video/mp4" />
+                              <source src="/the spring temp vid.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             

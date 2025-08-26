@@ -125,7 +125,7 @@ const PoliciesPage = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-                            src="/src/assets/innthepinesexterior.jpg"
+                            src="/innthepinesexterior.jpg"
             alt="Policies"
             className="w-full h-full object-cover"
           />

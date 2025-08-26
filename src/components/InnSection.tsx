@@ -91,7 +91,7 @@ const InnSection = () => {
           <div className="order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/src/assets/innthepines.jpg"
+                src="/innthepines.jpg"
                 alt="Inn The Pines mountain lodge"
                 className="w-full h-[600px] object-cover"
               />

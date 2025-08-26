@@ -20,7 +20,7 @@ const AboutPage = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/src/assets/hero-hot-springs.jpg"
+            src="/hero-hot-springs.jpg"
             alt="Our Story"
             className="w-full h-full object-cover"
           />
@@ -70,7 +70,7 @@ const AboutPage = () => {
             </div>
             <div className="rounded-lg overflow-hidden">
               <img
-                src="/src/assets/innthepinesexterior.jpg"
+                src="/innthepinesexterior.jpg"
                 alt="Mountain legacy"
                 className="w-full h-96 object-cover"
               />
