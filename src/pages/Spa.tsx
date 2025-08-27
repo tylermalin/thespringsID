@@ -82,27 +82,32 @@ const SpaPage = () => {
         <div className="luxury-container">
           <div className="text-center mb-16">
             <h2 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">
-              Massage Services
+              Therapeutic Massage
             </h2>
             <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
             <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
-              60-minute therapeutic table massage sessions available 5 days a week with limited availability.
+              Professional therapeutic massage sessions designed to promote relaxation and wellness.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Individual Massage Services */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <Card className="border-0 bg-card hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">Therapeutic Massage</CardTitle>
+                <CardTitle className="font-canela text-2xl">60-minute massage</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  60-minute therapeutic table massage sessions designed to promote relaxation and wellness.
-                </p>
-                <p className="text-luxury font-semibold mb-4">Available 5 days a week</p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Limited availability - book early to secure your preferred time.
-                </p>
+                <div className="text-center mb-6">
+                  <div className="text-3xl font-bold text-primary mb-2">$120</div>
+                  <p className="text-muted-foreground">
+                    Professional therapeutic massage designed to promote relaxation and wellness.
+                  </p>
+                </div>
+                <div className="space-y-2 mb-6">
+                  <p className="text-sm text-muted-foreground">• By appointment only</p>
+                  <p className="text-sm text-muted-foreground">• Adults 18+</p>
+                  <p className="text-sm text-muted-foreground">• Available 5 days a week</p>
+                </div>
                 <Button 
                   variant="outline" 
                   className="w-full"
@@ -115,45 +120,93 @@ const SpaPage = () => {
 
             <Card className="border-0 bg-card hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">Combination Discount</CardTitle>
+                <CardTitle className="font-canela text-2xl">90-minute massage</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Enhance your experience with a combination of massage and hot springs soak.
-                </p>
-                <p className="text-luxury font-semibold mb-4">10% off soak when combined with massage</p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Perfect for a complete wellness experience.
-                </p>
+                <div className="text-center mb-6">
+                  <div className="text-3xl font-bold text-primary mb-2">$160</div>
+                  <p className="text-muted-foreground">
+                    Extended therapeutic massage for deeper relaxation and muscle recovery.
+                  </p>
+                </div>
+                <div className="space-y-2 mb-6">
+                  <p className="text-sm text-muted-foreground">• By appointment only</p>
+                  <p className="text-sm text-muted-foreground">• Adults 18+</p>
+                  <p className="text-sm text-muted-foreground">• Extended wellness session</p>
+                </div>
                 <Button 
                   variant="outline" 
                   className="w-full"
                   onClick={() => handleBookNow('spa')}
                 >
-                  Book Combination
+                  Book Massage
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Combination Packages */}
+          <div className="text-center mb-12">
+            <h3 className="font-canela text-3xl md:text-4xl font-normal text-primary mb-4 tracking-tight">
+              Combination Packages
+            </h3>
+            <div className="w-16 h-px bg-primary/30 mx-auto mb-6"></div>
+            <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
+              Perfect wellness combinations for the ultimate relaxation experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="border-0 bg-gradient-to-br from-primary/5 to-secondary/10 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="font-canela text-2xl">Soak + Massage</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-center mb-6">
+                  <div className="text-3xl font-bold text-primary mb-2">$140</div>
+                  <div className="text-sm text-muted-foreground line-through mb-2">Regular: $155</div>
+                  <p className="text-green-600 font-medium text-sm mb-4">Save $15</p>
+                  <p className="text-muted-foreground">
+                    Therapeutic massage followed by relaxing hot springs soak.
+                  </p>
+                </div>
+                <div className="space-y-2 mb-6">
+                  <p className="text-sm text-muted-foreground">• Perfect wellness combination</p>
+                  <p className="text-sm text-muted-foreground">• 60-minute massage + 2.5-hour soak</p>
+                  <p className="text-sm text-muted-foreground">• Ultimate relaxation experience</p>
+                </div>
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90"
+                  onClick={() => handleBookNow('spa')}
+                >
+                  Book Package
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="border-0 bg-card hover:shadow-lg transition-shadow">
+            <Card className="border-0 bg-gradient-to-br from-primary/5 to-secondary/10 hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle className="font-canela text-2xl">Booking Information</CardTitle>
+                <CardTitle className="font-canela text-2xl">Private Tub + Massage</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Reserve your massage session in advance to ensure availability.
-                </p>
-                <div className="space-y-2 mb-4">
-                  <p className="text-sm text-muted-foreground">• Available online</p>
-                  <p className="text-sm text-muted-foreground">• Call (208) 392-9500</p>
-                  <p className="text-sm text-muted-foreground">• Limited availability</p>
+                <div className="text-center mb-6">
+                  <div className="text-3xl font-bold text-primary mb-2">$175</div>
+                  <div className="text-sm text-muted-foreground line-through mb-2">Regular: $205</div>
+                  <p className="text-green-600 font-medium text-sm mb-4">Save $30</p>
+                  <p className="text-muted-foreground">
+                    Private hot springs tub experience with therapeutic massage.
+                  </p>
+                </div>
+                <div className="space-y-2 mb-6">
+                  <p className="text-sm text-muted-foreground">• Perfect wellness combination</p>
+                  <p className="text-sm text-muted-foreground">• 60-minute massage + private tub</p>
+                  <p className="text-sm text-muted-foreground">• Exclusive relaxation experience</p>
                 </div>
                 <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => navigate('/contact')}
+                  className="w-full bg-primary hover:bg-primary/90"
+                  onClick={() => handleBookNow('spa')}
                 >
-                  Contact Us
+                  Book Package
                 </Button>
               </CardContent>
             </Card>

@@ -17,139 +17,237 @@ interface AddonItem {
 interface UpsellSectionProps {
   addons: AddonItem[];
   selectedAddons: AddonItem[];
-  onAddAddon: (addon: AddonItem) => void;
-  onRemoveAddon: (sku: string) => void;
-  onUpdateQuantity: (sku: string, qty: number) => void;
-  productType: string;
+  onAddonsChange: (addons: AddonItem[]) => void;
 }
 
 const UpsellSection: React.FC<UpsellSectionProps> = ({
   addons,
   selectedAddons,
-  onAddAddon,
-  onRemoveAddon,
-  onUpdateQuantity,
-  productType
+  onAddonsChange,
 }) => {
-  const getQuantity = (sku: string) => {
-    const selected = selectedAddons.find(addon => addon.sku === sku);
-    return selected ? selected.qty : 0;
+  const getQuantity = (sku: string): number => {
+    const selectedAddon = selectedAddons.find(addon => addon.sku === sku);
+    return selectedAddon ? selectedAddon.qty : 0;
   };
 
   const handleAdd = (addon: AddonItem) => {
-    const currentQty = getQuantity(addon.sku);
-    if (currentQty === 0) {
-      onAddAddon(addon);
+    const existingAddon = selectedAddons.find(a => a.sku === addon.sku);
+    let newAddons;
+    
+    if (existingAddon) {
+      newAddons = selectedAddons.map(a => 
+        a.sku === addon.sku ? { ...a, qty: a.qty + 1 } : a
+      );
     } else {
-      onUpdateQuantity(addon.sku, currentQty + 1);
+      newAddons = [...selectedAddons, { ...addon, qty: 1 }];
     }
+    onAddonsChange(newAddons);
   };
 
   const handleRemove = (sku: string) => {
-    const currentQty = getQuantity(sku);
-    if (currentQty > 1) {
-      onUpdateQuantity(sku, currentQty - 1);
+    const existingAddon = selectedAddons.find(a => a.sku === sku);
+    let newAddons;
+    
+    if (existingAddon && existingAddon.qty > 1) {
+      newAddons = selectedAddons.map(a => 
+        a.sku === sku ? { ...a, qty: a.qty - 1 } : a
+      );
     } else {
-      onRemoveAddon(sku);
+      newAddons = selectedAddons.filter(a => a.sku !== sku);
     }
+    onAddonsChange(newAddons);
   };
 
-  // Filter addons based on product type
-  const relevantAddons = addons.filter(addon => {
-    if (productType === 'soak') {
-      return ['towels', 'robes', 'locker', 'refreshments'].includes(addon.sku);
-    } else if (productType === 'spa') {
-      return ['aromatherapy', 'hot_stone', 'upgrade'].includes(addon.sku);
-    } else if (productType === 'private_tub') {
-      return ['champagne', 'chocolates', 'flowers', 'music'].includes(addon.sku);
-    } else if (productType === 'inn') {
-      return ['breakfast', 'late_checkout', 'parking'].includes(addon.sku);
-    }
-    return true;
-  });
+  // Organize add-ons by category
+  const experienceUpgrades = addons.filter(addon => 
+    addon.category === 'upgrade' || addon.category === 'experience' || addon.category === 'accommodation'
+  );
+  const traditionalAddons = addons.filter(addon => 
+    addon.category === 'amenities' || addon.category === 'luxury' || addon.category === 'spa' || addon.category === 'inn'
+  );
 
   return (
-    <div className="space-y-6">
-      <div className="text-center">
-        <h3 className="text-2xl font-semibold mb-2">Enhance Your Experience</h3>
-        <p className="text-muted-foreground">
-          Add these special touches to make your visit even more memorable
-        </p>
-      </div>
+    <div className="space-y-8">
+      {/* Experience Upgrades Section */}
+      {experienceUpgrades.length > 0 && (
+        <div>
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-semibold mb-2 text-primary">Complete Your Wellness Journey</h3>
+            <p className="text-muted-foreground">
+              Add these complementary experiences for the ultimate getaway
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {experienceUpgrades.map((addon) => {
+              const qty = getQuantity(addon.sku);
+              const isSelected = qty > 0;
+              const isExperienceUpgrade = addon.category === 'upgrade' || addon.category === 'experience' || addon.category === 'accommodation';
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {relevantAddons.map((addon) => {
-          const qty = getQuantity(addon.sku);
-          const isSelected = qty > 0;
-
-          return (
-            <Card
-              key={addon.sku}
-              className={`transition-all ${
-                isSelected ? 'ring-2 ring-primary bg-primary/5' : 'hover:shadow-md'
-              }`}
-            >
-              <CardHeader className="pb-3">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <CardTitle className="text-lg">{addon.name}</CardTitle>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {addon.description}
-                    </p>
-                  </div>
-                  <div className="text-right ml-4">
-                    <div className="font-semibold text-primary">${addon.price}</div>
-                    {qty > 0 && (
-                      <Badge variant="secondary" className="text-xs">
-                        {qty} selected
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="pt-0">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleRemove(addon.sku)}
-                      disabled={qty === 0}
-                    >
-                      <Minus className="w-3 h-3" />
-                    </Button>
-                    
-                    <span className="w-8 text-center font-medium">
-                      {qty}
-                    </span>
-                    
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleAdd(addon)}
-                    >
-                      <Plus className="w-3 h-3" />
-                    </Button>
-                  </div>
+              return (
+                <Card
+                  key={addon.sku}
+                  className={`transition-all ${
+                    isSelected ? 'ring-2 ring-primary bg-primary/5' : 'hover:shadow-lg border-2 hover:border-primary/20'
+                  } ${isExperienceUpgrade ? 'bg-gradient-to-br from-primary/5 to-secondary/10' : ''}`}
+                >
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <CardTitle className="text-lg text-primary">{addon.name}</CardTitle>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {addon.description}
+                        </p>
+                        {addon.sku.includes('combo') && (
+                          <div className="mt-2">
+                            <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                              Best Value
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="text-right ml-4">
+                        <div className="font-bold text-primary text-xl">${addon.price}</div>
+                        {qty > 0 && (
+                          <Badge variant="secondary" className="text-xs">
+                            {qty} selected
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                  </CardHeader>
                   
-                  {qty === 0 && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleAdd(addon)}
-                      className="ml-auto"
-                    >
-                      <ShoppingCart className="w-4 h-4 mr-1" />
-                      Add
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
+                  <CardContent className="pt-0">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleRemove(addon.sku)}
+                          disabled={qty === 0}
+                        >
+                          <Minus className="w-3 h-3" />
+                        </Button>
+                        
+                        <span className="w-8 text-center font-medium">
+                          {qty}
+                        </span>
+                        
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleAdd(addon)}
+                        >
+                          <Plus className="w-3 h-3" />
+                        </Button>
+                      </div>
+                      
+                      {qty === 0 && (
+                        <Button
+                          className="ml-auto bg-primary hover:bg-primary/90"
+                          size="sm"
+                          onClick={() => handleAdd(addon)}
+                        >
+                          <ShoppingCart className="w-4 h-4 mr-1" />
+                          Add Experience
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Traditional Add-ons Section */}
+      {traditionalAddons.length > 0 && (
+        <div>
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-semibold mb-2">Luxury Amenities</h3>
+            <p className="text-muted-foreground text-sm">
+              Perfect touches to enhance your comfort
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {traditionalAddons.map((addon) => {
+              const qty = getQuantity(addon.sku);
+              const isSelected = qty > 0;
+
+              return (
+                <Card
+                  key={addon.sku}
+                  className={`transition-all ${
+                    isSelected ? 'ring-2 ring-primary bg-primary/5' : 'hover:shadow-md'
+                  }`}
+                >
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <CardTitle className="text-lg">{addon.name}</CardTitle>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {addon.description}
+                        </p>
+                      </div>
+                      <div className="text-right ml-4">
+                        <div className="font-semibold text-primary">
+                          {addon.price === 0 ? 'Free' : `$${addon.price}`}
+                        </div>
+                        {qty > 0 && (
+                          <Badge variant="secondary" className="text-xs">
+                            {qty} selected
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleRemove(addon.sku)}
+                          disabled={qty === 0}
+                        >
+                          <Minus className="w-3 h-3" />
+                        </Button>
+                        
+                        <span className="w-8 text-center font-medium">
+                          {qty}
+                        </span>
+                        
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleAdd(addon)}
+                        >
+                          <Plus className="w-3 h-3" />
+                        </Button>
+                      </div>
+                      
+                      {qty === 0 && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleAdd(addon)}
+                          className="ml-auto"
+                        >
+                          <ShoppingCart className="w-4 h-4 mr-1" />
+                          Add
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {selectedAddons.length > 0 && (
         <div className="bg-muted/50 rounded-lg p-4">

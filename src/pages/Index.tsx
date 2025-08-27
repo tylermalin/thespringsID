@@ -1,10 +1,13 @@
+import React from 'react';
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import NotificationBanner from "@/components/NotificationBanner";
 import LuxuryHero from "@/components/LuxuryHero";
-import CuratedExperiences from "@/components/CuratedExperiences";
-import InnSection from "@/components/InnSection";
-import ContactSection from "@/components/ContactSection";
+import LuxuryExperiences from "@/components/LuxuryExperiences";
+import LuxuryAccommodations from "@/components/LuxuryAccommodations";
+import OurStory from "@/components/OurStory";
+import PlanYourVisit from "@/components/PlanYourVisit";
 import ReviewsSection from "@/components/ReviewsSection";
+import LuxuryGiftCards from "@/components/LuxuryGiftCards";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,10 +21,12 @@ const Index = () => {
       </div>
       <main>
         <LuxuryHero />
-        <CuratedExperiences />
-        <InnSection />
-        <ContactSection />
+        <LuxuryExperiences />
+        <LuxuryAccommodations />
+        <OurStory />
+        <PlanYourVisit />
         <ReviewsSection />
+        <LuxuryGiftCards />
       </main>
       <Footer />
     </div>

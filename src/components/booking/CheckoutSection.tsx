@@ -10,34 +10,82 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, Users, CreditCard, User, Mail, Phone } from "lucide-react";
 
 interface CheckoutSectionProps {
-  bookingSummary: {
-    product: string;
-    date: string;
-    time: string;
+  bookingData: {
+    product: string | null;
+    room?: string | null;
+    date: string | null;
+    timeSlot: string | null;
     party: { adults: number; children: number };
-    addons: Array<{ name: string; qty: number; price: number }>;
-    total: number;
+    addons: any[];
   };
-  guestInfo: {
-    name: string;
-    email: string;
-    phone: string;
-    notes: string;
-    sms_updates: boolean;
-  };
-  onGuestInfoChange: (field: string, value: string | boolean) => void;
-  onCompleteBooking: () => void;
-  loading?: boolean;
+  onBookingComplete: (bookingId: string) => void;
 }
 
 const CheckoutSection: React.FC<CheckoutSectionProps> = ({
-  bookingSummary,
-  guestInfo,
-  onGuestInfoChange,
-  onCompleteBooking,
-  loading = false
+  bookingData,
+  onBookingComplete
 }) => {
+  const [guestInfo, setGuestInfo] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    notes: '',
+    sms_updates: false
+  });
   const [policiesAcknowledged, setPoliciesAcknowledged] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleGuestInfoChange = (field: string, value: string | boolean) => {
+    setGuestInfo(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleCompleteBooking = async () => {
+    setLoading(true);
+    // Simulate booking process
+    setTimeout(() => {
+      const bookingId = `SPR-${Date.now()}`;
+      onBookingComplete(bookingId);
+      setLoading(false);
+    }, 2000);
+  };
+
+  const calculateTotal = () => {
+    let basePrice = 35; // Default price
+    if (bookingData.product === 'private_tub') basePrice = 85;
+    if (bookingData.product === 'spa') basePrice = 120;
+    if (bookingData.product === 'inn') {
+      // For inn, use room-specific pricing
+      if (bookingData.room === 'double_queen') basePrice = 199;
+      if (bookingData.room === 'king') basePrice = 179;
+      if (bookingData.room === 'cabin') basePrice = 249;
+    }
+    
+    const addonsTotal = bookingData.addons.reduce((sum, addon) => sum + (addon.price * addon.qty), 0);
+    return basePrice + addonsTotal;
+  };
+
+  const getRoomName = (roomId: string | null | undefined) => {
+    if (!roomId) return null;
+    const roomMap: { [key: string]: string } = {
+      'double_queen': 'Double Queen Room',
+      'king': 'King Room',
+      'cabin': 'Mountain Cabin'
+    };
+    return roomMap[roomId] || roomId;
+  };
+
+  const getTimeSlotDisplay = (timeSlotId: string | null) => {
+    if (!timeSlotId) return 'N/A';
+    const timeMap: { [key: string]: string } = {
+      '9am': '9:00 AM',
+      '11am': '11:00 AM',
+      '1pm': '1:00 PM',
+      '3pm': '3:00 PM',
+      '5pm': '5:00 PM',
+      '7pm': '7:00 PM'
+    };
+    return timeMap[timeSlotId] || timeSlotId;
+  };
 
   const getProductDisplayName = (product: string) => {
     switch (product) {
@@ -71,29 +119,37 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span className="font-medium">Service:</span>
-                <span>{getProductDisplayName(bookingSummary.product)}</span>
+                <span>{bookingData.product ? getProductDisplayName(bookingData.product) : 'N/A'}</span>
               </div>
+              {bookingData.room && (
+                <div className="flex justify-between">
+                  <span className="font-medium">Room:</span>
+                  <span>{getRoomName(bookingData.room)}</span>
+                </div>
+              )}
               <div className="flex justify-between">
                 <span className="font-medium">Date:</span>
-                <span>{new Date(bookingSummary.date).toLocaleDateString()}</span>
+                <span>{bookingData.date ? new Date(bookingData.date).toLocaleDateString() : 'N/A'}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="font-medium">Time:</span>
-                <span>{bookingSummary.time}</span>
-              </div>
+              {bookingData.product !== 'inn' && (
+                <div className="flex justify-between">
+                  <span className="font-medium">Time:</span>
+                  <span>{getTimeSlotDisplay(bookingData.timeSlot)}</span>
+                </div>
+              )}
               <div className="flex justify-between">
                 <span className="font-medium">Guests:</span>
-                <span>{bookingSummary.party.adults} adults, {bookingSummary.party.children} children</span>
+                <span>{bookingData.party.adults} adults, {bookingData.party.children} children</span>
               </div>
             </div>
 
-            {bookingSummary.addons.length > 0 && (
+            {bookingData.addons.length > 0 && (
               <>
                 <Separator />
                 <div>
                   <h4 className="font-medium mb-2">Add-ons:</h4>
                   <div className="space-y-1">
-                    {bookingSummary.addons.map((addon, index) => (
+                    {bookingData.addons.map((addon, index) => (
                       <div key={index} className="flex justify-between text-sm">
                         <span>{addon.name} (x{addon.qty})</span>
                         <span>${(addon.price * addon.qty).toFixed(2)}</span>
@@ -107,7 +163,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
             <Separator />
             <div className="flex justify-between text-lg font-semibold">
               <span>Total:</span>
-              <span className="text-primary">${bookingSummary.total.toFixed(2)}</span>
+              <span className="text-primary">${calculateTotal().toFixed(2)}</span>
             </div>
           </CardContent>
         </Card>
@@ -126,7 +182,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
               <Input
                 id="name"
                 value={guestInfo.name}
-                onChange={(e) => onGuestInfoChange('name', e.target.value)}
+                onChange={(e) => handleGuestInfoChange('name', e.target.value)}
                 placeholder="Enter your full name"
                 required
               />
@@ -138,7 +194,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
                 id="email"
                 type="email"
                 value={guestInfo.email}
-                onChange={(e) => onGuestInfoChange('email', e.target.value)}
+                onChange={(e) => handleGuestInfoChange('email', e.target.value)}
                 placeholder="Enter your email address"
                 required
               />
@@ -150,7 +206,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
                 id="phone"
                 type="tel"
                 value={guestInfo.phone}
-                onChange={(e) => onGuestInfoChange('phone', e.target.value)}
+                onChange={(e) => handleGuestInfoChange('phone', e.target.value)}
                 placeholder="Enter your phone number"
                 required
               />
@@ -161,7 +217,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
               <Textarea
                 id="notes"
                 value={guestInfo.notes}
-                onChange={(e) => onGuestInfoChange('notes', e.target.value)}
+                onChange={(e) => handleGuestInfoChange('notes', e.target.value)}
                 placeholder="Any special requests or accessibility needs"
                 rows={3}
               />
@@ -172,7 +228,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
                 id="sms_updates"
                 checked={guestInfo.sms_updates}
                 onCheckedChange={(checked) => 
-                  onGuestInfoChange('sms_updates', checked as boolean)
+                  handleGuestInfoChange('sms_updates', checked as boolean)
                 }
               />
               <Label htmlFor="sms_updates" className="text-sm">
@@ -205,10 +261,21 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
             <div className="bg-muted/50 rounded-lg p-4">
               <h4 className="font-medium mb-2">Important Information:</h4>
               <ul className="text-sm space-y-1 text-muted-foreground">
-                <li>• Cancellations must be made 24 hours in advance for a full refund</li>
-                <li>• Children under 16 must be accompanied by an adult</li>
-                <li>• Please consult your doctor before using hot springs if you have health conditions</li>
-                <li>• A 25% deposit is required to confirm your booking</li>
+                {bookingData.product === 'inn' ? (
+                  <>
+                    <li>• Hotel reservations require 48 hours notice for cancellation</li>
+                    <li>• Check-in: 3:00 PM | Check-out: 11:00 AM</li>
+                    <li>• Hot springs access included with overnight stay</li>
+                    <li>• Full payment required to confirm reservation</li>
+                  </>
+                ) : (
+                  <>
+                    <li>• Cancellations must be made 24 hours in advance for a full refund</li>
+                    <li>• Children under 16 must be accompanied by an adult</li>
+                    <li>• Please consult your doctor before using hot springs if you have health conditions</li>
+                    <li>• A 25% deposit is required to confirm your booking</li>
+                  </>
+                )}
               </ul>
             </div>
           </div>
@@ -219,7 +286,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
       <div className="flex justify-center">
         <Button
           size="lg"
-          onClick={onCompleteBooking}
+          onClick={handleCompleteBooking}
           disabled={!policiesAcknowledged || !guestInfo.name || !guestInfo.email || !guestInfo.phone || loading}
           className="w-full max-w-md"
         >
@@ -231,7 +298,7 @@ const CheckoutSection: React.FC<CheckoutSectionProps> = ({
           ) : (
             <div className="flex items-center space-x-2">
               <CreditCard className="w-5 h-5" />
-              <span>Complete Booking - ${bookingSummary.total.toFixed(2)}</span>
+              <span>Complete Booking - ${calculateTotal().toFixed(2)}</span>
             </div>
           )}
         </Button>

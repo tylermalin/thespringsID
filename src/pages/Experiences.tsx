@@ -45,7 +45,7 @@ const ExperiencesPage = () => {
               <Button 
                 size="xl" 
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
-                onClick={() => handleBookNow('soak')}
+                onClick={() => navigate('/booking')}
               >
                 Reserve Hot Springs
               </Button>

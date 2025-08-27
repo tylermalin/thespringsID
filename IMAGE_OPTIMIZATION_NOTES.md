@@ -5,7 +5,7 @@ All images have been moved from `src/assets/` to `public/` directory and all ref
 
 ## Large Files Identified
 - **Videos**: 
-  - `the spring temp vid.mp4` (39MB)
+  - `spring-thermal-video.mp4` (39MB) - renamed from `the spring temp vid.mp4`
   - `herovideoback.mp4` (34MB)
 - **Images**:
   - `springs hero.png` (2.8MB)

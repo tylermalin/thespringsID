@@ -25,29 +25,21 @@ const PartySelector = ({ onPartyChange, party, productType }: PartySelectorProps
 
   // Simplified configuration access
   const getMaxOccupancy = () => {
-    if (!state.bookingService) return 10;
-    const config = state.bookingService.getConfig();
-    const maxOccupancy = config.max_occupancy;
-    
     switch (productType) {
-      case 'soak': return maxOccupancy.soak;
-      case 'private_tub': return maxOccupancy.private_tub;
-      case 'spa': return maxOccupancy.spa;
-      case 'inn': return maxOccupancy.inn;
-      default: return 10;
+      case 'soak': return 8;
+      case 'private_tub': return 4;
+      case 'spa': return 2;
+      case 'inn': return 4;
+      default: return 8;
     }
   };
 
   const getAgeMinimum = () => {
-    if (!state.bookingService) return 0;
-    const config = state.bookingService.getConfig();
-    const ageMinimums = config.age_minimums;
-    
     switch (productType) {
-      case 'soak': return ageMinimums.soak;
-      case 'private_tub': return ageMinimums.private_tub;
-      case 'spa': return ageMinimums.spa;
-      case 'inn': return ageMinimums.inn;
+      case 'soak': return 0;
+      case 'private_tub': return 0;
+      case 'spa': return 16;
+      case 'inn': return 0;
       default: return 0;
     }
   };
