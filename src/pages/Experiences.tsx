@@ -11,7 +11,7 @@ const ExperiencesPage = () => {
   const navigate = useNavigate();
 
   const handleBookNow = (experienceType: string) => {
-    navigate('/booking', { state: { selectedProduct: experienceType } });
+    navigate('/bookeo-integration');
   };
 
   return (
@@ -45,7 +45,7 @@ const ExperiencesPage = () => {
               <Button 
                 size="xl" 
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
-                onClick={() => navigate('/booking')}
+                onClick={() => navigate('/bookeo-integration')}
               >
                 Reserve Hot Springs
               </Button>

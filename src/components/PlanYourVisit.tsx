@@ -120,14 +120,14 @@ const PlanYourVisit = () => {
               Ready to Experience The Springs?
             </h3>
             <p className="font-avenir text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Book your stay today and discover the perfect blend of luxury and natural wellness in the heart of Idaho's mountains.
+              Book your soak or private tub today and discover the perfect blend of luxury and natural wellness in the heart of Idaho's mountains.
             </p>
             <Button
               size="xl"
               className="font-avenir bg-gradient-to-r from-luxury to-luxury/80 hover:from-luxury/90 hover:to-luxury text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 px-12 py-6"
-              onClick={() => navigate('/booking')}
+              onClick={() => navigate('/bookeo-integration')}
             >
-              Reserve Your Experience
+              Book Soaks & Private Tubs
             </Button>
           </div>
         </div>

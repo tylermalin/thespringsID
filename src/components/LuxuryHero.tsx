@@ -5,7 +5,7 @@ const LuxuryHero = () => {
   const navigate = useNavigate();
 
   const handleBookNow = () => {
-    navigate('/booking');
+    navigate('/bookeo-integration');
   };
 
   const handleDiscoverExperience = () => {
@@ -60,7 +60,7 @@ const LuxuryHero = () => {
               className="font-avenir bg-black text-white hover:bg-black/90 tracking-wide"
               onClick={handleBookNow}
             >
-              Book Now
+              Book Soaks & Private Tubs
             </Button>
           </div>
         </div>

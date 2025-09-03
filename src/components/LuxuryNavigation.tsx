@@ -14,7 +14,7 @@ const LuxuryNavigation = () => {
   ];
 
   const handleBookNow = () => {
-    navigate('/booking');
+    navigate('/bookeo-integration');
   };
 
   return (
@@ -56,7 +56,7 @@ const LuxuryNavigation = () => {
               className="font-avenir"
               onClick={handleBookNow}
             >
-              Book Now
+              Book Soaks & Private Tubs
             </Button>
           </div>
 
@@ -93,7 +93,7 @@ const LuxuryNavigation = () => {
                   className="w-full font-avenir"
                   onClick={handleBookNow}
                 >
-                  Book Now
+                  Book Soaks & Private Tubs
                 </Button>
               </div>
             </div>

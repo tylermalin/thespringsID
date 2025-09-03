@@ -113,9 +113,9 @@ const VideoSection = () => {
               <Button 
                 size="lg" 
                 className="font-avenir bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => navigate('/booking')}
+                onClick={() => navigate('/bookeo-integration')}
               >
-                Book Your Visit
+                Book Soaks & Private Tubs
               </Button>
               <Button 
                 variant="outline" 

@@ -8,7 +8,7 @@ const ContactSection = () => {
   const navigate = useNavigate();
 
   const handleBookHotSprings = () => {
-    navigate('/booking', { state: { selectedProduct: 'soak' } });
+    navigate('/bookeo-integration');
   };
 
   const handleBookAccommodation = () => {

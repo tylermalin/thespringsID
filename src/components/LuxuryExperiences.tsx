@@ -15,7 +15,7 @@ const LuxuryExperiences = () => {
       icon: Waves,
       cta: 'Reserve Your Soak',
       image: '/privatepools.jpg',
-      action: () => navigate('/experiences')
+      action: () => navigate('/bookeo-integration')
     },
     {
       id: 'wellness-treatments',
@@ -33,7 +33,7 @@ const LuxuryExperiences = () => {
       icon: Crown,
       cta: 'Request Sanctuary Access',
       image: '/privatepool1.jpg',
-      action: () => navigate('/experiences')
+      action: () => navigate('/bookeo-integration')
     }
   ];
 

@@ -26,6 +26,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Accessibility from "./pages/Accessibility";
 import Sustainability from "./pages/Sustainability";
 import NotFound from "./pages/NotFound";
+import BookeoIntegration from "./pages/BookeoIntegration";
 
 const queryClient = new QueryClient();
 
@@ -94,6 +95,7 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/accessibility" element={<Accessibility />} />
             <Route path="/sustainability" element={<Sustainability />} />
+            <Route path="/bookeo-integration" element={<BookeoIntegration />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
