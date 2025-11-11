@@ -70,9 +70,11 @@ const InteractiveMap: React.FC = () => {
   };
 
   useEffect(() => {
-    // Load Google Maps script with API key
+    // Load Google Maps script with API key (async for optimal performance)
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAYUXDk9Hr57guIG9Ut0t0aGZEpu4ap_HM&libraries=places`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAYUXDk9Hr57guIG9Ut0t0aGZEpu4ap_HM&libraries=places&loading=async`;
+    script.async = true;
+    script.defer = true;
     script.async = true;
     script.defer = true;
     script.onload = () => {
