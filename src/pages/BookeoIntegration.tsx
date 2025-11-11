@@ -1,28 +1,35 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Phone, Mail, MapPin, Clock, Calendar } from "lucide-react";
+import { ArrowLeft, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useAnalytics } from "@/hooks/use-analytics";
 
 const BookeoIntegration = () => {
   useAnalytics('booking');
   const navigate = useNavigate();
+  const widgetContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Create script element
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = 'https://bookeo.com/widget.js?a=2137PFYJL13C84C48F96';
-    script.async = true;
+    script.async = false; // Load synchronously to ensure widget is available
     
-    document.head.appendChild(script);
+    // Append to body instead of head for better widget injection
+    document.body.appendChild(script);
     
     return () => {
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
+      // Clean up script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
       }
+      // Clean up any Bookeo iframes
+      const bookeoFrames = document.querySelectorAll('iframe[src*="bookeo.com"]');
+      bookeoFrames.forEach(frame => frame.remove());
     };
   }, []);
 
@@ -179,8 +186,12 @@ const BookeoIntegration = () => {
           </CardHeader>
           
           <CardContent className="p-8">
-            {/* Bookeo widget container - DO NOT MODIFY */}
-            <div id="bookeoWidget" className="min-h-[600px] w-full"></div>
+            {/* Bookeo widget will automatically inject here */}
+            <div 
+              ref={widgetContainerRef}
+              id="bookeoWidget" 
+              className="min-h-[600px] w-full bookeo-container"
+            ></div>
           </CardContent>
         </Card>
 
