@@ -23,7 +23,7 @@ const RoomGallery: React.FC<RoomGalleryProps> = ({ roomType }) => {
   const navigate = useNavigate();
 
   const handleBookNow = () => {
-    navigate('/booking', { state: { selectedProduct: 'inn', roomType: roomType.type } });
+    window.open('https://reservation.asiwebres.com/v5/RoomAvailability.aspx?id=59b16d1f00e54a5a80fb29308a6daf6c', '_blank');
   };
 
   const nextImage = () => {

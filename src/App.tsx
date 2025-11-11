@@ -27,6 +27,8 @@ import Accessibility from "./pages/Accessibility";
 import Sustainability from "./pages/Sustainability";
 import NotFound from "./pages/NotFound";
 import BookeoIntegration from "./pages/BookeoIntegration";
+import InnBooking from "./pages/InnBooking";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -96,6 +98,8 @@ const App = () => (
             <Route path="/accessibility" element={<Accessibility />} />
             <Route path="/sustainability" element={<Sustainability />} />
             <Route path="/bookeo-integration" element={<BookeoIntegration />} />
+            <Route path="/inn-booking" element={<InnBooking />} />
+            <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

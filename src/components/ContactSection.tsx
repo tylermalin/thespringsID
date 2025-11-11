@@ -12,7 +12,7 @@ const ContactSection = () => {
   };
 
   const handleBookAccommodation = () => {
-    navigate('/booking', { state: { selectedProduct: 'inn' } });
+    window.open('https://reservation.asiwebres.com/v5/RoomAvailability.aspx?id=59b16d1f00e54a5a80fb29308a6daf6c', '_blank');
   };
 
   const handleGiftCards = () => {

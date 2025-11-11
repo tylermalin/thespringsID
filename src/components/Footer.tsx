@@ -9,7 +9,7 @@ const Footer = () => {
       title: "Experiences",
       links: [
         { name: "Hot Springs", href: "/experiences", onClick: () => navigate('/bookeo-integration') },
-        { name: "Spa Treatments", href: "/spa", onClick: () => navigate('/booking', { state: { selectedProduct: 'spa' } }) },
+        { name: "Spa Treatments", href: "/spa", onClick: () => navigate('/bookeo-integration') },
         { name: "Private Events", href: "/private-events", onClick: () => navigate('/private-events') },
         { name: "Gift Cards", href: "/gift-cards", onClick: () => navigate('/gift-cards') },
       ],

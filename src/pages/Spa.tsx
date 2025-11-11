@@ -5,12 +5,15 @@ import { useNavigate } from "react-router-dom";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
+import AlertSection from "@/components/AlertSection";
+import { useAnalytics } from "@/hooks/use-analytics";
 
 const SpaPage = () => {
+  useAnalytics('spa');
   const navigate = useNavigate();
 
-  const handleBookNow = (serviceType: string) => {
-    navigate('/booking', { state: { selectedProduct: serviceType } });
+  const handleBookNow = (serviceType?: string) => {
+    navigate('/bookeo-integration');
   };
 
   return (
@@ -53,29 +56,8 @@ const SpaPage = () => {
         </div>
       </section>
 
-      {/* Important Notice - Temporary Closure */}
-      <section className="luxury-section bg-red-50 border-l-4 border-red-400">
-        <div className="luxury-container">
-          <div className="text-center">
-            <h2 className="font-canela text-3xl md:text-4xl font-normal text-red-800 mb-4 tracking-tight">
-              Temporary Closure Notice
-            </h2>
-            <p className="font-avenir text-lg text-red-700 font-medium mb-4">
-              The Springs will be closed July 21st through August 30th, 2025 for remodeling
-            </p>
-            <p className="font-avenir text-md text-red-600 mb-6">
-              Inn The Pines remains open during this time. Guests staying at Inn The Pines during the closure will receive a hotel discount when The Springs reopens.
-            </p>
-            <Button 
-              variant="outline" 
-              className="font-avenir border-red-400 text-red-700 hover:bg-red-50"
-              onClick={() => navigate('/accommodations')}
-            >
-              Book Inn The Pines
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Alert Section - Managed via Admin Dashboard */}
+      <AlertSection pageName="spa" />
 
       {/* Massage Services */}
       <section className="luxury-section bg-background">

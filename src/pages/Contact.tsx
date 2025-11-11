@@ -12,7 +12,7 @@ const ContactPage = () => {
   const [expandedDirection, setExpandedDirection] = useState<string | null>(null);
 
   const handleBookNow = () => {
-    navigate('/booking');
+    navigate('/bookeo-integration');
   };
 
   const toggleDirection = (direction: string) => {

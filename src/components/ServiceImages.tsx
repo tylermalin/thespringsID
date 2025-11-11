@@ -6,7 +6,7 @@ const ServiceImages = () => {
     {
       title: "Thermal Waters",
       description: "Natural mineral-rich hot springs",
-      image: "/springs hero.png",
+      image: "/pubpool3.jpg",
       alt: "Natural thermal waters at The Springs"
     },
     {

@@ -9,8 +9,11 @@ import PlanYourVisit from "@/components/PlanYourVisit";
 import ReviewsSection from "@/components/ReviewsSection";
 import LuxuryGiftCards from "@/components/LuxuryGiftCards";
 import Footer from "@/components/Footer";
+import { useAnalytics } from "@/hooks/use-analytics";
 
 const Index = () => {
+  useAnalytics('home');
+  
   return (
     <div className="min-h-screen bg-background font-avenir">
       <div className="relative z-30">

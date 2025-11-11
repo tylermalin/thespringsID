@@ -135,7 +135,7 @@ const LuxuryAccommodations = () => {
 
         <div className="text-center">
           <Button
-            onClick={() => navigate('/booking')}
+            onClick={() => window.open('https://reservation.asiwebres.com/v5/RoomAvailability.aspx?id=59b16d1f00e54a5a80fb29308a6daf6c', '_blank')}
             size="xl"
             className="font-avenir bg-gradient-to-r from-luxury to-luxury/80 hover:from-luxury/90 hover:to-luxury text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 px-12 py-6"
           >

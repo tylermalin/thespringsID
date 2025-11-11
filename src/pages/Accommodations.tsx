@@ -8,12 +8,15 @@ import Footer from "@/components/Footer";
 import ReviewsSection from "@/components/ReviewsSection";
 import VideoSection from "@/components/VideoSection";
 import RoomImageGallery from "@/components/RoomImageGallery";
+import { useAnalytics } from "@/hooks/use-analytics";
 
 const AccommodationsPage = () => {
+  useAnalytics('accommodations');
   const navigate = useNavigate();
 
-  const handleBookNow = (roomType: string) => {
-    navigate('/booking', { state: { selectedProduct: 'inn', roomType } });
+  const handleBookNow = (roomType?: string) => {
+    // Open Inn The Pines booking system
+    window.open('https://reservation.asiwebres.com/v5/RoomAvailability.aspx?id=59b16d1f00e54a5a80fb29308a6daf6c', '_blank');
   };
 
   const roomTypes = [
@@ -45,7 +48,15 @@ const AccommodationsPage = () => {
       beds: '1 King, 1 Full, 1 Pull-out Queen',
       description: 'Full cabin experience with kitchen and living space, perfect for larger groups or extended stays.',
       features: ['Full kitchen', 'Washer & dryer', 'Dishwasher', 'Living room', 'Complete dish sets'],
-                      images: ['/innthepines.jpg', '/innthepinesexterior.jpg', '/inn-room.jpg', '/innoutside.jpg']
+      images: [
+        '/cabin-exterior.jpg',
+        '/cabin-bedroom.jpg', 
+        '/cabin-living-room-1.jpg',
+        '/cabin-living-room-2.jpg',
+        '/innthepines.jpg',
+        '/innthepinesexterior.jpg',
+        '/inn-room.jpg'
+      ]
     }
   ];
 
@@ -64,33 +75,37 @@ const AccommodationsPage = () => {
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
       
-      {/* Hero Section */}
+      {/* Hero Section with YouTube Video */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-                              src="/innthepinesexterior.jpg"
-            alt="Inn The Pines"
-            className="w-full h-full object-cover"
+        {/* YouTube Video Background */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <iframe
+            className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2"
+            src="https://www.youtube.com/embed/sFPa36wqT94?autoplay=1&mute=1&loop=1&playlist=sFPa36wqT94&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+            title="Inn The Pines Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
         </div>
         
         <div className="relative z-10 text-center luxury-container animate-luxury-fade">
           <div className="max-w-4xl mx-auto space-y-8">
-            <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight">
+            <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight drop-shadow-2xl">
               Inn The Pines
             </h1>
             
-            <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
+            <div className="w-24 h-px bg-white/80 mx-auto my-12"></div>
             
-            <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
+            <p className="font-avenir text-xl md:text-2xl text-white font-light max-w-2xl mx-auto leading-relaxed tracking-wide drop-shadow-lg">
               Seven-room hotel just down the road from The Springs. Brand new rooms, the nicest in town.
             </p>
 
             <div className="pt-12">
               <Button 
                 size="xl" 
-                className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
+                className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide shadow-2xl"
                 onClick={() => handleBookNow('NK')}
               >
                 Reserve Your Room

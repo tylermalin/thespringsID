@@ -227,7 +227,7 @@ const ${template.title.replace(/\s+/g, '')}Page = () => {
   const navigate = useNavigate();
 
   const handleBookNow = () => {
-    navigate('/booking');
+    navigate('/bookeo-integration');
   };
 
   return (

@@ -33,34 +33,35 @@ export interface AlertConfig {
 // ALERT CONFIGURATION
 // Spa owners: Edit the alerts below to manage notices across your website
 export const ACTIVE_ALERTS: AlertConfig[] = [
-  {
-    id: 'temp-closure-2025',
-    type: 'closure',
-    title: 'Temporary Closure Notice',
-    message: 'The Springs will be closed July 21st through August 30th, 2025 for remodeling. Inn The Pines remains open during this time. Guests staying at Inn The Pines during the closure will receive a hotel discount when The Springs reopens.',
-    ctaText: 'Book Inn The Pines',
-    ctaLink: '/accommodations',
-    startDate: '2025-01-01',
-    endDate: '2025-09-01',
-    isActive: true,
-    priority: 'high',
-    showOnPages: ['experiences', 'spa', 'faqs', 'policies'], // Add page names where this should appear
-    styling: {
-      backgroundColor: 'bg-black',
-      textColor: 'text-white',
-      borderColor: 'border-white/20',
-      buttonStyle: 'default',
-      buttonColors: {
-        background: 'bg-white',
-        text: 'text-black',
-        border: 'border-white',
-        hover: {
-          background: 'bg-gray-100',
-          text: 'text-black'
-        }
-      }
-    }
-  },
+  // Temp closure notice - now managed via admin dashboard
+  // {
+  //   id: 'temp-closure-2025',
+  //   type: 'closure',
+  //   title: 'Temporary Closure Notice',
+  //   message: 'The Springs will be closed July 21st through August 30th, 2025 for remodeling. Inn The Pines remains open during this time. Guests staying at Inn The Pines during the closure will receive a hotel discount when The Springs reopens.',
+  //   ctaText: 'Book Inn The Pines',
+  //   ctaLink: '/accommodations',
+  //   startDate: '2025-01-01',
+  //   endDate: '2025-09-01',
+  //   isActive: false,
+  //   priority: 'high',
+  //   showOnPages: ['experiences', 'spa', 'faqs', 'policies'],
+  //   styling: {
+  //     backgroundColor: 'bg-black',
+  //     textColor: 'text-white',
+  //     borderColor: 'border-white/20',
+  //     buttonStyle: 'default',
+  //     buttonColors: {
+  //       background: 'bg-white',
+  //       text: 'text-black',
+  //       border: 'border-white',
+  //       hover: {
+  //         background: 'bg-gray-100',
+  //         text: 'text-black'
+  //       }
+  //     }
+  //   }
+  // },
   // Example of how to add more alerts:
   /*
   {
@@ -92,11 +93,15 @@ export const ACTIVE_ALERTS: AlertConfig[] = [
 
 // Helper functions for spa owners
 export const getActiveAlertsForPage = (pageName: string): AlertConfig[] => {
-  return ACTIVE_ALERTS.filter(alert => 
+  // Try to load from localStorage first (admin-managed alerts)
+  const stored = localStorage.getItem('springs_alerts');
+  const alerts = stored ? JSON.parse(stored) : ACTIVE_ALERTS;
+  
+  return alerts.filter((alert: AlertConfig) => 
     alert.isActive && 
     alert.showOnPages.includes(pageName) &&
     isAlertInDateRange(alert)
-  ).sort((a, b) => {
+  ).sort((a: AlertConfig, b: AlertConfig) => {
     const priorityOrder = { high: 3, medium: 2, low: 1 };
     return priorityOrder[b.priority] - priorityOrder[a.priority];
   });

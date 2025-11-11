@@ -7,11 +7,7 @@ const CuratedExperiences = () => {
   const navigate = useNavigate();
 
   const handleBookExperience = (experienceType: string) => {
-    if (experienceType === 'soak' || experienceType === 'private_tub') {
-      navigate('/bookeo-integration');
-    } else {
-      navigate('/booking', { state: { selectedProduct: experienceType } });
-    }
+    navigate('/bookeo-integration');
   };
 
   const experiences = [
