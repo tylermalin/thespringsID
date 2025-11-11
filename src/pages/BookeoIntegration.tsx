@@ -4,34 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useAnalytics } from "@/hooks/use-analytics";
-
-const BookeoIntegration = () => {
-  useAnalytics('booking');
-  const navigate = useNavigate();
-  const widgetContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Create script element
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://bookeo.com/widget.js?a=2137PFYJL13C84C48F96';
-    script.async = false; // Load synchronously to ensure widget is available
-    
-    // Append to body instead of head for better widget injection
-    document.body.appendChild(script);
-    
-    return () => {
-      // Clean up script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-      // Clean up any Bookeo iframes
-      const bookeoFrames = document.querySelectorAll('iframe[src*="bookeo.com"]');
-      bookeoFrames.forEach(frame => frame.remove());
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -186,13 +160,12 @@ const BookeoIntegration = () => {
           </CardHeader>
           
           <CardContent className="p-8">
-            {/* Bookeo widget embedded directly */}
-            <div 
-              className="min-h-[600px] w-full"
-              dangerouslySetInnerHTML={{
-                __html: `<script type="text/javascript" src="https://bookeo.com/widget.js?a=2137PFYJL13C84C48F96"></script>`
-              }}
-            ></div>
+            {/* Bookeo widget container - script will inject iframe here */}
+            <div id="bookeoWidgetContainer" className="w-full">
+              <div className="text-center text-slate-500 py-12">
+                <p className="text-lg font-avenir">Loading booking calendar...</p>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
