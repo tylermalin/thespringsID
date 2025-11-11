@@ -75,8 +75,6 @@ const InteractiveMap: React.FC = () => {
     script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAYUXDk9Hr57guIG9Ut0t0aGZEpu4ap_HM&libraries=places&loading=async`;
     script.async = true;
     script.defer = true;
-    script.async = true;
-    script.defer = true;
     script.onload = () => {
       setMapLoaded(true);
       initMap();
