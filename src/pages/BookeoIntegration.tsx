@@ -186,11 +186,12 @@ const BookeoIntegration = () => {
           </CardHeader>
           
           <CardContent className="p-8">
-            {/* Bookeo widget will automatically inject here */}
+            {/* Bookeo widget embedded directly */}
             <div 
-              ref={widgetContainerRef}
-              id="bookeoWidget" 
-              className="min-h-[600px] w-full bookeo-container"
+              className="min-h-[600px] w-full"
+              dangerouslySetInnerHTML={{
+                __html: `<script type="text/javascript" src="https://bookeo.com/widget.js?a=2137PFYJL13C84C48F96"></script>`
+              }}
             ></div>
           </CardContent>
         </Card>
