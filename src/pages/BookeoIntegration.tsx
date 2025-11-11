@@ -7,6 +7,40 @@ import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import { useAnalytics } from "@/hooks/use-analytics";
 
+const BookeoIntegration = () => {
+  useAnalytics('booking');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Remove any existing Bookeo scripts first
+    const existingScripts = document.querySelectorAll('script[src*="bookeo.com"]');
+    existingScripts.forEach(s => s.remove());
+    
+    // Create and inject the Bookeo widget script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://bookeo.com/widget.js?a=2137PFYJL13C84C48F96';
+    script.async = true;
+    
+    // Find the widget container and insert script right after it
+    const widgetContainer = document.getElementById('bookeoWidgetContainer');
+    if (widgetContainer && widgetContainer.parentNode) {
+      widgetContainer.parentNode.insertBefore(script, widgetContainer.nextSibling);
+    } else {
+      // Fallback: append to body
+      document.body.appendChild(script);
+    }
+    
+    return () => {
+      // Cleanup on unmount
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+      const bookeoFrames = document.querySelectorAll('iframe[src*="bookeo.com"]');
+      bookeoFrames.forEach(frame => frame.remove());
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <LuxuryNavigation />
