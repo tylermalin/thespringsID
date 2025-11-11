@@ -179,12 +179,9 @@ const BookeoIntegration = () => {
           </CardHeader>
           
           <CardContent className="p-8">
-            <div id="bookeo-widget-container" className="min-h-[600px]">
-              <div className="text-center text-slate-500 py-12">
-                <Calendar className="h-16 w-16 mx-auto mb-4 text-slate-300" />
-                <p className="text-lg font-avenir">Loading booking system...</p>
-                <p className="text-sm font-avenir">Please wait a moment</p>
-              </div>
+            {/* Bookeo widget will inject itself here */}
+            <div className="min-h-[600px]">
+              {/* This is where Bookeo widget automatically loads */}
             </div>
           </CardContent>
         </Card>
