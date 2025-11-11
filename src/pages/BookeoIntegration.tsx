@@ -179,10 +179,8 @@ const BookeoIntegration = () => {
           </CardHeader>
           
           <CardContent className="p-8">
-            {/* Bookeo widget will inject itself here */}
-            <div className="min-h-[600px]">
-              {/* This is where Bookeo widget automatically loads */}
-            </div>
+            {/* Bookeo widget container - DO NOT MODIFY */}
+            <div id="bookeoWidget" className="min-h-[600px] w-full"></div>
           </CardContent>
         </Card>
 
