@@ -14,13 +14,6 @@ const LuxuryGiftCards = () => {
       description: 'Instant delivery via email. Perfect for last-minute gifts or immediate use.',
       icon: Sparkles,
       features: ['Instant Delivery', 'Email Delivery', 'No Expiration', 'Easy to Use']
-    },
-    {
-      id: 'physical',
-      title: 'Mailed Gift Cards',
-      description: 'Beautifully designed physical cards mailed to your recipient with a personal message.',
-      icon: Gift,
-      features: ['Premium Design', 'Personal Message', 'Tracked Shipping', 'Collector Quality']
     }
   ];
 
@@ -33,7 +26,7 @@ const LuxuryGiftCards = () => {
           </h2>
           <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
           <p className="font-avenir text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed tracking-wide">
-            Digital or mailed gift cards. Perfect for holidays, birthdays, or special occasions.
+            Digital gift cards delivered instantly. Perfect for holidays, birthdays, or special occasions.
           </p>
         </div>
 
@@ -57,7 +50,7 @@ const LuxuryGiftCards = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-12">
+        <div className="grid lg:grid-cols-1 gap-12 mb-12 max-w-2xl mx-auto">
           {giftCardOptions.map((option) => {
             const IconComponent = option.icon;
             return (
@@ -109,11 +102,11 @@ const LuxuryGiftCards = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                onClick={() => navigate('/gift-cards')}
+                onClick={() => window.open('https://app.cardivo.com/giftcards/thesprings', '_blank')}
                 size="xl"
                 className="font-avenir bg-gradient-to-r from-luxury to-luxury/80 hover:from-luxury/90 hover:to-luxury text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 px-8 py-6"
               >
-                Purchase Gift Cards
+                Purchase Gift Card
               </Button>
               <Button
                 onClick={() => navigate('/contact')}

@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 const PlanYourVisit = () => {
   const navigate = useNavigate();
   const handleGetDirections = () => {
-    window.open('https://maps.google.com/?q=3764+Hwy+21,+Idaho+City,+ID+83631', '_blank');
+    window.open('https://maps.google.com/?q=3742+Hwy+21,+Idaho+City,+ID+83631', '_blank');
   };
 
   const handleCall = () => {
-    window.open('tel:+12083927680', '_blank');
+    window.open('tel:+12083929500', '_blank');
   };
 
   const handleEmail = () => {
@@ -43,7 +43,7 @@ const PlanYourVisit = () => {
             </CardHeader>
             <CardContent className="text-center space-y-4">
               <p className="font-avenir text-muted-foreground leading-relaxed">
-                3764 Hwy 21<br />
+                3742 Hwy 21<br />
                 Idaho City, ID 83631
               </p>
               <Button
@@ -70,7 +70,7 @@ const PlanYourVisit = () => {
               <div className="space-y-2">
                 <p className="font-avenir text-muted-foreground">
                   <span className="font-semibold text-primary">Hot Springs:</span><br />
-                  9AM–9PM
+                  10:30am - 10pm
                 </p>
                 <p className="font-avenir text-muted-foreground">
                   <span className="font-semibold text-primary">Spa:</span><br />
@@ -98,7 +98,7 @@ const PlanYourVisit = () => {
                   className="font-avenir w-full border-luxury text-luxury hover:bg-luxury hover:text-white transition-all duration-300"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  (208) 392-7680
+                  208.392.9500
                 </Button>
                 <Button
                   onClick={handleEmail}

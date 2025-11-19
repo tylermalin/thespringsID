@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BookingProvider } from "@/contexts/BookingContext";
 import { BookingService } from "@/services/booking/booking-service";
 import { BookingConfig } from "@/services/booking/types";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Booking from "./pages/Booking";
 import Experiences from "./pages/Experiences";
@@ -77,6 +78,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/booking" element={<Booking />} />

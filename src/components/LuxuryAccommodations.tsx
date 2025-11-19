@@ -37,7 +37,7 @@ const LuxuryAccommodations = () => {
       price: '$319',
       period: '/night',
       icon: Home,
-      image: '/innthepines.jpg',
+      image: '/cabinexter.jpg',
       features: ['Fireplace', 'Living Area', 'Full Kitchen', 'Sweeping Views'],
       action: () => navigate('/accommodations')
     }

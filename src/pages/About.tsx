@@ -184,9 +184,21 @@ const AboutPage = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-canela text-2xl text-primary mb-4">Evolution to Modern Resort</h3>
+                  <h3 className="font-canela text-2xl text-primary mb-4">Evolution to the Modern Springs</h3>
+                  <p className="font-avenir text-lg text-primary font-light leading-relaxed tracking-wide mb-6">
+                    A thoughtful restoration of Idaho's historic mountain wellness tradition
+                  </p>
+                  <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide mb-4">
+                    When the current owners purchased the property in 1999, the historic hot springs structures—once an essential refuge for miners, travelers, and early settlers—were in significant disrepair. Many of the original buildings had weathered decades of Idaho mountain winters, several facilities were unusable, and the septic system had completely collapsed, making the site functionally inoperable.
+                  </p>
+                  <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide mb-4">
+                    Recognizing the cultural and historical value of the hot springs, the owners began an exhaustive, multi-year restoration to revive the property. The work required rebuilding essential infrastructure from the ground up and thoughtfully redesigning the facility to honor its origins while supporting future generations of guests.
+                  </p>
+                  <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide mb-4">
+                    In 2012, after more than a decade of careful effort, The Springs reopened as the modern mountain wellness destination it is today. The renovation honored the past while introducing contemporary amenities—geothermal pools, thoughtfully designed gathering spaces, private soaking rooms, and a luxurious yet understated approach to relaxation.
+                  </p>
                   <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide">
-                    The Springs as it exists today is built on the site of one of these historic bathing spots. Over time, the hot springs transitioned from rustic bathhouses serving pioneers to a thoughtfully developed resort that honors its historical roots while providing modern comforts. The current facility features a large geothermal pool, private hot tubs, spa services, and a peaceful mountain setting, creating a luxurious retreat for wellness and relaxation.
+                    This transformation marked the beginning of a new era: a historic hot springs, reimagined for modern mountain wellness while preserving the integrity and spirit of the original site.
                   </p>
                   
                   {/* Evolution Images Grid */}

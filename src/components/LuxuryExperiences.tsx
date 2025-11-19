@@ -14,7 +14,7 @@ const LuxuryExperiences = () => {
       description: 'Natural mineral springs in a pristine mountain setting. Multiple pools maintained at optimal temperatures for relaxation and renewal.',
       icon: Waves,
       cta: 'Reserve Your Soak',
-      image: '/pubpool3.jpg',
+      image: '/poolwater.JPG',
       action: () => navigate('/bookeo-integration')
     },
     {
