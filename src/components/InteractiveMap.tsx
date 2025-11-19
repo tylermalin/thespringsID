@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,17 +23,17 @@ const InteractiveMap: React.FC = () => {
   const locations: Record<string, LocationInfo> = {
     springs: {
       name: "The Springs",
-      address: "3764 Hwy 21, Idaho City, ID 83631",
+      address: "3742 Hwy 21, Idaho City, ID 83631",
       coordinates: { lat: 43.8284, lng: -115.8346 }, // Idaho City coordinates
-      phone: "(208) 392-7680",
-      hours: "Daily 9:00 AM - 9:00 PM",
+      phone: "208.392.9500",
+      hours: "Daily 10:30am - 10pm",
       description: "Natural hot springs with multiple pools and spa services"
     },
     inn: {
       name: "Inn The Pines",
       address: "3764 Hwy 21, Idaho City, ID 83631",
       coordinates: { lat: 43.8284, lng: -115.8346 }, // Same location as springs
-      phone: "(208) 392-7680",
+      phone: "(208) 392-9505",
       hours: "Check-in: 3:00 PM, Check-out: 11:00 AM",
       description: "Cozy mountain lodge with hot springs access"
     }
@@ -41,59 +41,7 @@ const InteractiveMap: React.FC = () => {
 
   const currentLocation = locations[selectedLocation];
 
-  const handleGetDirections = (platform: 'google' | 'apple' | 'waze') => {
-    const { lat, lng } = currentLocation.coordinates;
-    const address = encodeURIComponent(currentLocation.address);
-    
-    let url = '';
-    switch (platform) {
-      case 'google':
-        url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-        break;
-      case 'apple':
-        url = `http://maps.apple.com/?daddr=${lat},${lng}`;
-        break;
-      case 'waze':
-        url = `https://waze.com/ul?ll=${lat},${lng}&navigate=yes`;
-        break;
-    }
-    
-    window.open(url, '_blank');
-  };
-
-  const handleCall = () => {
-    window.open(`tel:${currentLocation.phone}`, '_self');
-  };
-
-  const handleEmail = () => {
-    window.open('mailto:info@thespringsid.com', '_self');
-  };
-
-  useEffect(() => {
-    // Load Google Maps script with API key (async for optimal performance)
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAYUXDk9Hr57guIG9Ut0t0aGZEpu4ap_HM&libraries=places&loading=async`;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => {
-      setMapLoaded(true);
-      initMap();
-    };
-    script.onerror = () => {
-      console.error('Failed to load Google Maps');
-      setMapLoaded(true); // Show fallback
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[src*="maps.googleapis.com"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, [selectedLocation]);
-
-  const initMap = () => {
+  const initMap = useCallback(() => {
     if (!mapLoaded || !(window as any).google) return;
 
     const mapElement = document.getElementById('map');
@@ -145,7 +93,76 @@ const InteractiveMap: React.FC = () => {
     } catch (error) {
       console.error('Error initializing map:', error);
     }
+  }, [mapLoaded, currentLocation]);
+
+  const handleGetDirections = (platform: 'google' | 'apple' | 'waze') => {
+    const { lat, lng } = currentLocation.coordinates;
+    const address = encodeURIComponent(currentLocation.address);
+    
+    let url = '';
+    switch (platform) {
+      case 'google':
+        url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+        break;
+      case 'apple':
+        url = `http://maps.apple.com/?daddr=${lat},${lng}`;
+        break;
+      case 'waze':
+        url = `https://waze.com/ul?ll=${lat},${lng}&navigate=yes`;
+        break;
+    }
+    
+    window.open(url, '_blank');
   };
+
+  const handleCall = () => {
+    window.open(`tel:${currentLocation.phone}`, '_self');
+  };
+
+  const handleEmail = () => {
+    window.open('mailto:info@thespringsid.com', '_self');
+  };
+
+  useEffect(() => {
+    // Check if Google Maps is already loaded
+    if ((window as any).google?.maps) {
+      setMapLoaded(true);
+      initMap();
+      return;
+    }
+
+    // Check if script is already being loaded
+    const existingScript = document.querySelector('script[src*="maps.googleapis.com"]');
+    if (existingScript) {
+      existingScript.addEventListener('load', () => {
+        setMapLoaded(true);
+        initMap();
+      });
+      return;
+    }
+
+    // Load Google Maps script with API key (async for optimal performance)
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAYUXDk9Hr57guIG9Ut0t0aGZEpu4ap_HM&libraries=places&loading=async`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      setMapLoaded(true);
+      initMap();
+    };
+    script.onerror = () => {
+      console.error('Failed to load Google Maps');
+      setMapLoaded(true); // Show fallback
+    };
+    document.head.appendChild(script);
+  }, [initMap]);
+
+  // Update map when location changes
+  useEffect(() => {
+    if (mapLoaded) {
+      initMap();
+    }
+  }, [selectedLocation, mapLoaded, initMap]);
 
   return (
     <div className="space-y-6">
