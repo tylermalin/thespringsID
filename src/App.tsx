@@ -33,6 +33,7 @@ import InnBooking from "./pages/InnBooking";
 import Admin from "./pages/Admin";
 import Careers from "./pages/Careers";
 import Press from "./pages/Press";
+import Packages from "./pages/Packages";
 
 const queryClient = new QueryClient();
 
@@ -116,6 +117,7 @@ const App = () => (
             <Route path="/admin" element={<Admin />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/press" element={<Press />} />
+            <Route path="/packages" element={<Packages />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
