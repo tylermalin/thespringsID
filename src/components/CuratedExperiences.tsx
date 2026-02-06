@@ -7,7 +7,7 @@ const CuratedExperiences = () => {
   const navigate = useNavigate();
 
   const handleBookExperience = (experienceType: string) => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   const experiences = [
@@ -68,8 +68,8 @@ const CuratedExperiences = () => {
                 <p className="font-avenir text-muted-foreground font-light leading-relaxed mb-6">
                   {experience.description}
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="font-avenir border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full"
                   onClick={experience.buttonAction}
                 >

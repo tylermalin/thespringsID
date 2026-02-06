@@ -65,13 +65,13 @@ const AboutPage = () => {
   const navigate = useNavigate();
 
   const handleBookNow = () => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   return (
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -82,22 +82,22 @@ const AboutPage = () => {
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        
+
         <div className="relative z-10 text-center luxury-container animate-luxury-fade">
           <div className="max-w-4xl mx-auto space-y-8">
             <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight">
               Our Story
             </h1>
-            
+
             <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
-            
+
             <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
               A legacy of mountain wellness and natural healing in the heart of the Idaho mountains.
             </p>
 
             <div className="pt-12">
-              <Button 
-                size="xl" 
+              <Button
+                size="xl"
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={handleBookNow}
               >
@@ -150,7 +150,7 @@ const AboutPage = () => {
               <p className="font-avenir text-lg text-muted-foreground font-light leading-relaxed tracking-wide mb-6">
                 The Springs is a modern hot springs resort with roots that trace back to the historic legacy of Idaho's natural mineral springs. Here's a deeper look at its history and significance:
               </p>
-              
+
               {/* Gold Rush Era Image */}
               <div className="my-8 text-center">
                 <img
@@ -162,14 +162,14 @@ const AboutPage = () => {
                   Idaho City, 1889 - Gold Rush Era bustling with ore teams and mining activity
                 </p>
               </div>
-              
+
               <div className="space-y-6">
                 <div>
                   <h3 className="font-canela text-2xl text-primary mb-4">Gold Rush Era Origins</h3>
                   <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide">
                     Idaho City rose to prominence during the gold rush era in the mid-1800s, when thousands flocked to the area seeking fortune. Naturally occurring hot springs in the region became a much-needed reprieve for miners and settlers after long, grueling days. Hot springs were considered places of healing and social gathering, and local tribes long before Europeans arrived valued them for their restorative properties.
                   </p>
-                  
+
                   {/* Early Hot Springs Use Image */}
                   <div className="my-8 text-center">
                     <img
@@ -200,7 +200,7 @@ const AboutPage = () => {
                   <p className="font-avenir text-muted-foreground font-light leading-relaxed tracking-wide">
                     This transformation marked the beginning of a new era: a historic hot springs, reimagined for modern mountain wellness while preserving the integrity and spirit of the original site.
                   </p>
-                  
+
                   {/* Evolution Images Grid */}
                   <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="text-center">
@@ -259,7 +259,7 @@ const AboutPage = () => {
                     The hot mineral water at The Springs is naturally heated and rich in minerals, believed to have therapeutic benefits—a tradition cherished by generations.
                   </p>
                 </div>
-                
+
                 {/* Springs History Image */}
                 <div className="my-8 text-center">
                   <img
@@ -393,16 +393,16 @@ const AboutPage = () => {
 
           <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="font-avenir"
                 onClick={handleBookNow}
               >
                 Book Your Experience
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="font-avenir"
                 onClick={() => navigate('/contact')}
               >

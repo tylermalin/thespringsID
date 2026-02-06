@@ -12,7 +12,7 @@ const FAQsPage = () => {
   const navigate = useNavigate();
 
   const handleBookNow = () => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   const faqCategories = [
@@ -25,7 +25,7 @@ const FAQsPage = () => {
         },
         {
           question: "What is the cancellation policy?",
-          answer: "All reservations require 12 hours advance notice for cancellation. Credit card will be charged full price for no-shows or late cancellations. You must receive email confirmation for all reservations."
+          answer: "All reservations require 12 hours advance notice for cancellation. We do not charge your credit card at the time of booking, but if we are not notified of any cancellations 12 hours prior to your scheduled booking, credit card charges will be incurred for the full price of your reservation."
         },
         {
           question: "How far in advance should I book?",
@@ -42,15 +42,15 @@ const FAQsPage = () => {
       items: [
         {
           question: "What are the current rates?",
-          answer: "Adult General Soak: $25 (2.5 hour session), Child General Soak: $22 (children 12 and under). Hotel guests receive discounted rates: Adults $20, Children $17."
+          answer: "Adult General Soak: $30 (2.5 hour session), Child General Soak: $27 (children 12 and under)."
         },
         {
           question: "Do you offer hotel guest discounts?",
-          answer: "Yes! Guests staying at Inn The Pines receive guaranteed entry to The Springs even when fully booked, plus discounted pricing: Adults $20, Children $17."
+          answer: "Yes! Guests staying at Inn The Pines may receive special rates. Please check with the front desk or during your booking process."
         },
         {
           question: "What are private tub rates?",
-          answer: "Private tubs are $55/hour for couples (up to 2 adults), with $5 extra per person for 3rd and 4th adult. Adults 18+ only."
+          answer: "Private tubs are $65/hour for couples, with $5 extra per person for 3rd and 4th person (up to 4 total). Private tubs are 18+ only and clothing optional."
         },
         {
           question: "Do you accept credit cards?",
@@ -172,7 +172,7 @@ const FAQsPage = () => {
   return (
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -183,22 +183,22 @@ const FAQsPage = () => {
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        
+
         <div className="relative z-10 text-center luxury-container animate-luxury-fade">
           <div className="max-w-4xl mx-auto space-y-8">
             <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight">
               FAQs
             </h1>
-            
+
             <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
-            
+
             <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
               Find answers to the most commonly asked questions about The Springs and Inn The Pines.
             </p>
 
             <div className="pt-12">
-              <Button 
-                size="xl" 
+              <Button
+                size="xl"
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={handleBookNow}
               >
@@ -259,16 +259,16 @@ const FAQsPage = () => {
               Can't find what you're looking for? Our team is here to help you plan your perfect mountain experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="font-avenir"
                 onClick={() => navigate('/contact')}
               >
                 Contact Us
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="font-avenir"
                 onClick={handleBookNow}
               >

@@ -1,238 +1,95 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
+import { useAnalytics } from "@/hooks/use-analytics";
 
 const PrivacyPolicy = () => {
-  const navigate = useNavigate();
-
-  const handleContact = () => {
-    navigate('/contact');
-  };
+  useAnalytics('privacy-policy');
 
   return (
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-secondary">
         <div className="luxury-container">
           <div className="text-center">
             <h1 className="font-canela text-4xl md:text-5xl font-normal text-primary mb-8 tracking-tight">
-              Privacy Policy — The Springs Resort & Inn the Pines
+              Privacy Policy
             </h1>
             <div className="w-24 h-px bg-primary/30 mx-auto mb-8"></div>
             <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
-              Last Updated: January 1, 2024
+              Effective Date: February 6, 2026
             </p>
           </div>
         </div>
       </section>
 
-      {/* Privacy Content */}
+      {/* Content Section */}
       <section className="luxury-section bg-background">
         <div className="luxury-container">
-          <div className="max-w-4xl mx-auto space-y-8">
-            
-            {/* Introduction */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">1. Introduction</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  The Springs Resort & Inn the Pines ("The Springs," "we," "our") values your privacy. 
-                  This Privacy Policy explains how we collect, use, and share your information when you 
-                  visit our resort, website, or make reservations.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="max-w-4xl mx-auto space-y-12 prose prose-slate max-w-none font-avenir">
 
-            {/* Information We Collect */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">2. Information We Collect</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Personal Information: Name, email, phone number, billing details.</li>
-                  <li>Booking Information: Dates of stay, spa services, special requests.</li>
-                  <li>Technical Information: IP address, browser, device type, cookies.</li>
-                  <li>Communications: Messages, feedback, or reviews.</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* How We Use Information */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">3. How We Use Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We use your information to:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Process reservations and payments.</li>
-                  <li>Provide customer support.</li>
-                  <li>Send booking confirmations and service updates.</li>
-                  <li>Share promotional offers (you may opt out anytime).</li>
-                  <li>Improve our services and guest experience.</li>
-                  <li>Comply with legal obligations.</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Sharing Information */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">4. Sharing Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We share information only with:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Payment processors and booking providers.</li>
-                  <li>Service vendors who support operations.</li>
-                  <li>Legal authorities when required.</li>
-                </ul>
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We do not sell personal data to third parties.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Cookies & Analytics */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">5. Cookies & Analytics</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We use cookies for site functionality and analytics. You can manage cookies through your browser.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Data Retention */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">6. Data Retention</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We retain data as long as needed for bookings, guest services, or legal compliance.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Your Rights */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">7. Your Rights</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  Depending on your jurisdiction, you may have rights to:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Access or request a copy of your data.</li>
-                  <li>Correct or delete personal information.</li>
-                  <li>Opt out of promotional communications.</li>
-                </ul>
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  Requests can be made to: privacy@thespringsid.com.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Security */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">8. Security</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We implement safeguards to protect your data, but no system is completely secure.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Children's Privacy */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">9. Children's Privacy</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  Our services are not directed at children under 13. We do not knowingly collect personal data from them.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* International Use */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">10. International Use</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  If you are outside the U.S., your data may be transferred and stored in the U.S.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Updates */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">11. Updates</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  We may update this policy periodically. Updates will be posted with a new "Last Updated" date.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Contact */}
-            <Card className="border-0 bg-card">
-              <CardHeader>
-                <CardTitle className="font-canela text-2xl">12. Contact</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="font-avenir text-muted-foreground leading-relaxed">
-                  Questions? Contact us at:
-                </p>
-                <div className="space-y-2 text-muted-foreground">
-                  <p>Email: privacy@thespringsid.com</p>
-                  <p>Phone: (208) 392-7680</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="luxury-section bg-secondary">
-        <div className="luxury-container">
-          <div className="text-center">
-            <h2 className="font-canela text-3xl md:text-4xl font-normal text-primary mb-8 tracking-tight">
-              Questions About Privacy?
-            </h2>
-            <p className="font-avenir text-lg text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed tracking-wide mb-8">
-              We're here to help clarify any questions you may have about our privacy practices.
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              This Privacy Policy explains how The Springs collects, uses, and protects information you provide when you visit our website, make a reservation, or contact us.
             </p>
-            <Button 
-              size="lg" 
-              className="font-avenir"
-              onClick={handleContact}
-            >
-              Contact Us
-            </Button>
+
+            <section>
+              <h2 className="font-canela text-2xl text-primary mb-6">Information We Collect</h2>
+              <p>We may collect:</p>
+              <ul className="list-disc list-inside mt-4 space-y-2">
+                <li>Contact information (such as name, email, phone number)</li>
+                <li>Reservation information (such as date/time, party size, services selected)</li>
+                <li>Messages you send us through forms or email</li>
+                <li>Basic website usage data (such as pages visited and general interaction data)</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="font-canela text-2xl text-primary mb-6">How We Use Information</h2>
+              <p>We use information to:</p>
+              <ul className="list-disc list-inside mt-4 space-y-2">
+                <li>Process reservations and provide services</li>
+                <li>Communicate with you about your booking or questions</li>
+                <li>Improve our website and customer experience</li>
+                <li>Maintain security and prevent fraud or misuse</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="font-canela text-2xl text-primary mb-6">Third-Party Services</h2>
+              <p>We may use trusted third-party services to operate our business, such as:</p>
+              <ul className="list-disc list-inside mt-4 space-y-2">
+                <li>Online booking/reservation tools</li>
+                <li>Form providers (for applications or inquiries)</li>
+                <li>Website analytics tools</li>
+              </ul>
+              <p className="mt-4">These providers may process limited information on our behalf to deliver their services.</p>
+            </section>
+
+            <section>
+              <h2 className="font-canela text-2xl text-primary mb-6">Cookies and Analytics</h2>
+              <p>Our website may use cookies or similar technologies to help the site function properly and understand general website traffic. You can adjust cookie settings in your browser, though some site features may not work as intended.</p>
+            </section>
+
+            <section>
+              <h2 className="font-canela text-2xl text-primary mb-6">How We Protect Information</h2>
+              <p>We take reasonable measures to protect personal information. No method of transmission or storage is 100% secure, but we work to safeguard your information using appropriate administrative and technical practices.</p>
+            </section>
+
+            <section>
+              <h2 className="font-canela text-2xl text-primary mb-6">Your Choices</h2>
+              <p>You may request to update or correct your information by contacting us. You may also opt out of non-essential communications at any time.</p>
+            </section>
+
+            <section>
+              <h2 className="font-canela text-2xl text-primary mb-6">Contact</h2>
+              <p>For privacy questions or requests, contact us at:</p>
+              <p className="font-medium mt-4">
+                Email: info@thespringsid.com
+              </p>
+            </section>
+
           </div>
         </div>
       </section>

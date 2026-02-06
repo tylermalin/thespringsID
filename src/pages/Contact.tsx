@@ -12,7 +12,7 @@ const ContactPage = () => {
   const [expandedDirection, setExpandedDirection] = useState<string | null>(null);
 
   const handleBookNow = () => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   const toggleDirection = (direction: string) => {
@@ -55,7 +55,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -66,22 +66,22 @@ const ContactPage = () => {
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        
+
         <div className="relative z-10 text-center luxury-container animate-luxury-fade">
           <div className="max-w-4xl mx-auto space-y-8">
             <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight">
               Contact Us
             </h1>
-            
+
             <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
-            
+
             <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
               We're here to help you plan your perfect mountain wellness experience.
             </p>
 
             <div className="pt-12">
-              <Button 
-                size="xl" 
+              <Button
+                size="xl"
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={handleBookNow}
               >
@@ -217,8 +217,8 @@ const ContactPage = () => {
                   <p className="font-avenir text-foreground">Currently Hiring:</p>
                   <p className="text-sm text-muted-foreground">Front Desk, Poolside Server, Attendant</p>
                 </div>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full mt-4"
                   onClick={() => window.open('https://thespringsid.wufoo.com/forms/apply-online-to-join-the-team-at-the-springs/', '_blank')}
                 >
@@ -238,8 +238,8 @@ const ContactPage = () => {
                 <p className="font-avenir text-foreground mb-4">
                   Email: info@thespringsid.com
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
                   onClick={() => navigate('/private-events')}
                 >
@@ -266,17 +266,17 @@ const ContactPage = () => {
 
           {/* Get Directions Buttons - Mobile First */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="font-avenir"
               onClick={() => window.open('https://maps.google.com/?q=3742+Hwy+21+Idaho+City+ID+83631', '_blank')}
             >
               Get Directions to The Springs
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="font-avenir"
               onClick={() => window.open('https://maps.google.com/?q=3764+Hwy+21+Idaho+City+ID+83631', '_blank')}
             >
@@ -287,14 +287,14 @@ const ContactPage = () => {
           {/* Collapsible Directions */}
           <div className="max-w-2xl mx-auto space-y-4 mb-12">
             <Card className="border-0 bg-card">
-              <CardHeader 
+              <CardHeader
                 className="cursor-pointer hover:bg-secondary/50 transition-colors"
                 onClick={() => toggleDirection('boise')}
               >
                 <div className="flex items-center justify-between">
                   <CardTitle className="font-canela text-xl">From Boise</CardTitle>
-                  {expandedDirection === 'boise' ? 
-                    <ChevronUp className="w-5 h-5" /> : 
+                  {expandedDirection === 'boise' ?
+                    <ChevronUp className="w-5 h-5" /> :
                     <ChevronDown className="w-5 h-5" />
                   }
                 </div>
@@ -302,7 +302,7 @@ const ContactPage = () => {
               {expandedDirection === 'boise' && (
                 <CardContent>
                   <p className="font-avenir text-muted-foreground leading-relaxed">
-                    Take Highway 21 north towards Idaho City. Look for The Springs sign on the left just past mile marker 37. 
+                    Take Highway 21 north towards Idaho City. Look for The Springs sign on the left just past mile marker 37.
                     Idaho City is 1 mile beyond The Springs. Drive time: approximately 45 minutes.
                   </p>
                 </CardContent>
@@ -310,14 +310,14 @@ const ContactPage = () => {
             </Card>
 
             <Card className="border-0 bg-card">
-              <CardHeader 
+              <CardHeader
                 className="cursor-pointer hover:bg-secondary/50 transition-colors"
                 onClick={() => toggleDirection('idaho-city')}
               >
                 <div className="flex items-center justify-between">
                   <CardTitle className="font-canela text-xl">From Idaho City</CardTitle>
-                  {expandedDirection === 'idaho-city' ? 
-                    <ChevronUp className="w-5 h-5" /> : 
+                  {expandedDirection === 'idaho-city' ?
+                    <ChevronUp className="w-5 h-5" /> :
                     <ChevronDown className="w-5 h-5" />
                   }
                 </div>
@@ -325,7 +325,7 @@ const ContactPage = () => {
               {expandedDirection === 'idaho-city' && (
                 <CardContent>
                   <p className="font-avenir text-muted-foreground leading-relaxed">
-                    Head south on Highway 21 towards Boise. The Springs is located 1 mile south of Idaho City on the right side of the highway. 
+                    Head south on Highway 21 towards Boise. The Springs is located 1 mile south of Idaho City on the right side of the highway.
                     Look for our distinctive sign. Drive time: approximately 2 minutes.
                   </p>
                 </CardContent>

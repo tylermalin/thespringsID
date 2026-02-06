@@ -13,39 +13,39 @@ const SpaPage = () => {
   const navigate = useNavigate();
 
   const handleBookNow = (serviceType?: string) => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   return (
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-                            src="/springsinteriornight.jpg"
+            src="/springsinteriornight.jpg"
             alt="Spa & Wellness"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        
+
         <div className="relative z-10 text-center luxury-container animate-luxury-fade">
           <div className="max-w-4xl mx-auto space-y-8">
             <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight">
               Spa & Wellness
             </h1>
-            
+
             <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
-            
+
             <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
               Therapeutic massage services to enhance your mountain wellness experience.
             </p>
 
             <div className="pt-12">
-              <Button 
-                size="xl" 
+              <Button
+                size="xl"
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={() => handleBookNow('spa')}
               >
@@ -90,8 +90,8 @@ const SpaPage = () => {
                   <p className="text-sm text-muted-foreground">• Adults 18+</p>
                   <p className="text-sm text-muted-foreground">• Available 5 days a week</p>
                 </div>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
                   onClick={() => handleBookNow('spa')}
                 >
@@ -116,8 +116,8 @@ const SpaPage = () => {
                   <p className="text-sm text-muted-foreground">• Adults 18+</p>
                   <p className="text-sm text-muted-foreground">• Extended wellness session</p>
                 </div>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
                   onClick={() => handleBookNow('spa')}
                 >
@@ -157,7 +157,7 @@ const SpaPage = () => {
                   <p className="text-sm text-muted-foreground">• 60-minute massage + 2.5-hour soak</p>
                   <p className="text-sm text-muted-foreground">• Ultimate relaxation experience</p>
                 </div>
-                <Button 
+                <Button
                   className="w-full bg-primary hover:bg-primary/90"
                   onClick={() => handleBookNow('spa')}
                 >
@@ -184,7 +184,7 @@ const SpaPage = () => {
                   <p className="text-sm text-muted-foreground">• 60-minute massage + private tub</p>
                   <p className="text-sm text-muted-foreground">• Exclusive relaxation experience</p>
                 </div>
-                <Button 
+                <Button
                   className="w-full bg-primary hover:bg-primary/90"
                   onClick={() => handleBookNow('spa')}
                 >
@@ -257,25 +257,25 @@ const SpaPage = () => {
                       Book online or call us directly to secure your preferred time.
                     </p>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Button 
-                      size="lg" 
+                    <Button
+                      size="lg"
                       className="font-avenir"
                       onClick={() => handleBookNow('spa')}
                     >
                       Book Online
                     </Button>
-                    <Button 
-                      variant="outline" 
-                      size="lg" 
+                    <Button
+                      variant="outline"
+                      size="lg"
                       className="font-avenir"
                       onClick={() => window.open('tel:208-392-9500', '_self')}
                     >
                       Call (208) 392-9500
                     </Button>
                   </div>
-                  
+
                   <div className="text-center pt-4">
                     <p className="text-sm text-muted-foreground">
                       Limited availability - book early to secure your preferred time

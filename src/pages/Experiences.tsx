@@ -14,13 +14,13 @@ const ExperiencesPage = () => {
   const navigate = useNavigate();
 
   const handleBookNow = (experienceType: string) => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   return (
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -31,24 +31,24 @@ const ExperiencesPage = () => {
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        
+
         <div className="relative z-10 text-center luxury-container animate-luxury-fade">
           <div className="max-w-4xl mx-auto space-y-8">
             <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight">
               Natural Thermal Waters
             </h1>
-            
+
             <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
-            
+
             <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
               Immerse yourself in the healing properties of our natural mineral springs, maintained at optimal temperatures for therapeutic benefit.
             </p>
 
             <div className="pt-12">
-              <Button 
-                size="xl" 
+              <Button
+                size="xl"
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
-                onClick={() => navigate('/bookeo-integration')}
+                onClick={() => navigate('/book-the-springs')}
               >
                 Reserve Hot Springs
               </Button>
@@ -73,8 +73,8 @@ const ExperiencesPage = () => {
                 <div>
                   <h3 className="font-canela text-2xl text-primary mb-4">General Schedule</h3>
                   <p className="font-avenir text-lg text-muted-foreground font-light leading-relaxed">
-                    Open 5 days a week (Thursday-Monday)<br/>
-                    <strong>Hours:</strong> 10:30 AM - 10:00 PM<br/>
+                    Open 5 days a week (Thursday-Monday)<br />
+                    <strong>Hours:</strong> 10:30 AM - 10:00 PM<br />
                     <strong>Closed:</strong> Tuesday and Wednesday each week
                   </p>
                 </div>
@@ -134,7 +134,7 @@ const ExperiencesPage = () => {
             <Card className="border-0 bg-card hover:shadow-lg transition-shadow overflow-hidden">
               {/* Auto-advancing Gallery */}
               <div className="p-6 pb-0">
-                <RoomImageGallery 
+                <RoomImageGallery
                   images={[
                     '/springs hero.png',
                     '/pubpoolbubble.jpg',
@@ -153,7 +153,7 @@ const ExperiencesPage = () => {
                   className="mb-6"
                 />
               </div>
-              
+
               <CardHeader>
                 <CardTitle className="font-canela text-2xl">General Soak</CardTitle>
               </CardHeader>
@@ -161,26 +161,26 @@ const ExperiencesPage = () => {
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="font-avenir">Adult General Soak</span>
-                    <span className="text-luxury font-bold">$25</span>
+                    <span className="text-luxury font-bold">$30</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-avenir">Child General Soak</span>
-                    <span className="text-luxury font-bold">$22</span>
+                    <span className="text-luxury font-bold">$27</span>
                   </div>
                   <div className="text-sm text-muted-foreground">
                     2½ hour session
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full"
                     onClick={() => handleBookNow('soak')}
                   >
                     Reserve Soak
                   </Button>
-                  <Button 
-                    variant="ghost" 
+                  <Button
+                    variant="ghost"
                     className="w-full text-luxury hover:text-luxury/80"
                     onClick={() => navigate('/public-pools-gallery')}
                   >
@@ -193,7 +193,7 @@ const ExperiencesPage = () => {
             <Card className="border-0 bg-card hover:shadow-lg transition-shadow overflow-hidden">
               {/* Auto-advancing Gallery */}
               <div className="p-6 pb-0">
-                <RoomImageGallery 
+                <RoomImageGallery
                   images={[
                     '/pathtoprivatepools.jpg',
                     '/priv-tubs2_orig.jpg',
@@ -213,38 +213,38 @@ const ExperiencesPage = () => {
                   className="mb-6"
                 />
               </div>
-              
+
               <CardHeader>
                 <CardTitle className="font-canela text-2xl">Private Tubs</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between items-center">
-                    <span className="font-avenir">Up to 2 adults</span>
-                    <span className="text-luxury font-bold">$55+ tax/hour</span>
+                    <span className="font-avenir">Couple (per hour)</span>
+                    <span className="text-luxury font-bold">$65+ tax</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-avenir">3rd adult</span>
+                    <span className="font-avenir">3rd person</span>
                     <span className="text-luxury font-bold">+$5</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-avenir">4th adult</span>
+                    <span className="font-avenir">4th person</span>
                     <span className="text-luxury font-bold">+$5</span>
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Adults 18+ only • 10:30 AM - 9:00 PM
+                    Adults 18+ only • clothing optional
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full"
                     onClick={() => handleBookNow('private_tub')}
                   >
                     Reserve Private Tub
                   </Button>
-                  <Button 
-                    variant="ghost" 
+                  <Button
+                    variant="ghost"
                     className="w-full text-luxury hover:text-luxury/80"
                     onClick={() => navigate('/private-tubs-gallery')}
                   >
@@ -325,8 +325,8 @@ const ExperiencesPage = () => {
                     By appointment only • Adults 18+
                   </div>
                 </div>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
                   onClick={() => handleBookNow('spa')}
                 >
@@ -353,8 +353,8 @@ const ExperiencesPage = () => {
                     Perfect wellness combination
                   </div>
                 </div>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
                   onClick={() => handleBookNow('spa')}
                 >

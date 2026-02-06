@@ -125,7 +125,7 @@ const PlanYourVisit = () => {
             <Button
               size="xl"
               className="font-avenir bg-gradient-to-r from-luxury to-luxury/80 hover:from-luxury/90 hover:to-luxury text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 px-12 py-6"
-              onClick={() => navigate('/bookeo-integration')}
+              onClick={() => navigate('/book-the-springs')}
             >
               Book Soaks & Private Tubs
             </Button>

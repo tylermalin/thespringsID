@@ -34,7 +34,7 @@ const VideoSection = () => {
     console.log('Video loaded successfully');
     setVideoLoaded(true);
   };
-  
+
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="luxury-container">
@@ -54,9 +54,9 @@ const VideoSection = () => {
               // Fallback when video fails to load
               <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/20 flex items-center justify-center">
                 <div className="text-center space-y-4">
-                  <img 
-                    src="/hero-hot-springs.jpg" 
-                    alt="The Springs thermal waters" 
+                  <img
+                    src="/hero-hot-springs.jpg"
+                    alt="The Springs thermal waters"
                     className="w-full h-full object-cover rounded-lg"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -85,12 +85,11 @@ const VideoSection = () => {
                   <source src="/spring-thermal-video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                
+
                 {/* Play Button Overlay */}
-                <div 
-                  className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 cursor-pointer ${
-                    isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:opacity-75'
-                  }`}
+                <div
+                  className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 cursor-pointer ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:opacity-75'
+                    }`}
                   onClick={handlePlayClick}
                 >
                   <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
@@ -110,16 +109,16 @@ const VideoSection = () => {
               Book your visit and discover the perfect temperature that awaits you at The Springs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="font-avenir bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => navigate('/bookeo-integration')}
+                onClick={() => navigate('/book-the-springs')}
               >
                 Book Soaks & Private Tubs
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="font-avenir border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 onClick={() => navigate('/experiences')}
               >

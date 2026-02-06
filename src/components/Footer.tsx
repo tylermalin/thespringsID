@@ -8,8 +8,8 @@ const Footer = () => {
     {
       title: "Experiences",
       links: [
-        { name: "Hot Springs", href: "/experiences", onClick: () => navigate('/bookeo-integration') },
-        { name: "Spa Treatments", href: "/spa", onClick: () => navigate('/bookeo-integration') },
+        { name: "Hot Springs", href: "/experiences", onClick: () => navigate('/book-the-springs') },
+        { name: "Spa Treatments", href: "/spa", onClick: () => navigate('/spa') },
         { name: "Private Events", href: "/private-events", onClick: () => navigate('/private-events') },
         { name: "Gift Cards", href: "/gift-cards", onClick: () => navigate('/gift-cards') },
       ],
@@ -24,21 +24,22 @@ const Footer = () => {
       ],
     },
     {
-      title: "About",
+      title: "Company",
       links: [
         { name: "Our Story", href: "/about", onClick: () => navigate('/about') },
-        { name: "Sustainability", href: "/sustainability", onClick: () => navigate('/sustainability') },
         { name: "Careers", href: "/careers", onClick: () => navigate('/careers') },
         { name: "Press", href: "/press", onClick: () => navigate('/press') },
+        { name: "Sustainability", href: "/sustainability", onClick: () => navigate('/sustainability') },
       ],
     },
     {
-      title: "Support",
+      title: "Legal & Support",
       links: [
-        { name: "Contact Us", href: "/contact", onClick: () => navigate('/contact') },
         { name: "FAQs", href: "/faqs", onClick: () => navigate('/faqs') },
-        { name: "Accessibility", href: "/accessibility", onClick: () => navigate('/accessibility') },
+        { name: "Contact Us", href: "/contact", onClick: () => navigate('/contact') },
         { name: "Privacy Policy", href: "/privacy", onClick: () => navigate('/privacy') },
+        { name: "Terms & Conditions", href: "/terms", onClick: () => navigate('/terms') },
+        { name: "Waiver", href: "/waiver", onClick: () => navigate('/waiver') },
       ],
     },
   ];
@@ -56,15 +57,15 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Brand Section */}
             <div className="lg:col-span-2">
-              <img 
-                src="/springslogolight.png" 
-                alt="The Springs" 
+              <img
+                src="/springslogolight.png"
+                alt="The Springs"
                 className="h-12 w-auto mb-4"
               />
               <p className="text-primary-foreground/80 mb-6 leading-relaxed">
                 Experience luxury mountain wellness at our pristine hot springs resort in the heart of the Idaho mountains.
               </p>
-              
+
               {/* Social Links */}
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
@@ -105,32 +106,32 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-primary-foreground/80 text-sm">
-              © 2024 The Springs Resort & Inn The Pines. All rights reserved.
+              © 2026 The Springs Resort & Inn The Pines. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <button 
-                onClick={() => navigate('/terms-of-service')}
+            <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0">
+              <button
+                onClick={() => navigate('/terms')}
                 className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
               >
-                Terms of Service
+                Terms & Conditions
               </button>
-              <button 
-                onClick={() => navigate('/privacy-policy')}
+              <button
+                onClick={() => navigate('/privacy')}
                 className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
               >
                 Privacy Policy
               </button>
-              <button 
+              <button
+                onClick={() => navigate('/waiver')}
+                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
+              >
+                Waiver
+              </button>
+              <button
                 onClick={() => navigate('/accessibility')}
                 className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
               >
                 Accessibility
-              </button>
-              <button 
-                onClick={() => navigate('/sustainability')}
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Sustainability
               </button>
             </div>
           </div>

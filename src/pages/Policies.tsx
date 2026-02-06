@@ -12,7 +12,7 @@ const PoliciesPage = () => {
   const navigate = useNavigate();
 
   const handleBookNow = () => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   const policies = [
@@ -25,7 +25,7 @@ const PoliciesPage = () => {
         },
         {
           title: "Cancellation Policy",
-          content: "Separate Reservations: Springs and Inn The Pines reservations must be cancelled separately. Must contact both facilities to avoid cancellation charges."
+          content: "12-hour cancellation policy applies to all reservations. We do not charge your credit card at the time of booking, but if we are not notified of cancellations 12 hours prior to your scheduled booking, credit card charges will be incurred for the full price of your reservation."
         },
         {
           title: "No-Show Policy",
@@ -106,11 +106,11 @@ const PoliciesPage = () => {
       items: [
         {
           title: "General Soak Pricing",
-          content: "Adult General Soak: $25 (2½ hour session). Child General Soak: $22 (2½ hour session)."
+          content: "Adult General Soak: $30 (2½ hour session). Child General Soak: $27 (2½ hour session)."
         },
         {
           title: "Private Tubs Pricing",
-          content: "$55+ tax per hour (up to 2 adults). Additional $5 each for 3rd and 4th adult. Poolside server available for food and drinks."
+          content: "$65+ tax per hour for couples. Additional $5 each for 3rd and 4th person (up to 4 total). Private tubs are 18+ and clothing optional."
         },
         {
           title: "Separate Reservations",
@@ -123,33 +123,33 @@ const PoliciesPage = () => {
   return (
     <div className="min-h-screen bg-background font-avenir">
       <LuxuryNavigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-                            src="/innthepinesexterior.jpg"
+            src="/innthepinesexterior.jpg"
             alt="Policies"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        
+
         <div className="relative z-10 text-center luxury-container animate-luxury-fade">
           <div className="max-w-4xl mx-auto space-y-8">
             <h1 className="font-canela text-6xl md:text-8xl font-normal text-white leading-[0.9] tracking-tight">
               Policies
             </h1>
-            
+
             <div className="w-24 h-px bg-white/60 mx-auto my-12"></div>
-            
+
             <p className="font-avenir text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
               Important information to ensure a safe and enjoyable experience for all guests.
             </p>
 
             <div className="pt-12">
-              <Button 
-                size="xl" 
+              <Button
+                size="xl"
                 className="font-avenir bg-white text-primary hover:bg-white/90 tracking-wide"
                 onClick={handleBookNow}
               >
@@ -210,16 +210,16 @@ const PoliciesPage = () => {
               By making a reservation, you acknowledge that you have read and agree to our policies. We reserve the right to modify these policies at any time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="font-avenir"
                 onClick={() => navigate('/contact')}
               >
                 Contact Us
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="font-avenir"
                 onClick={handleBookNow}
               >

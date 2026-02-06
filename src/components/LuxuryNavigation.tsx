@@ -14,7 +14,7 @@ const LuxuryNavigation = () => {
   ];
 
   const handleBookNow = () => {
-    navigate('/bookeo-integration');
+    navigate('/book-the-springs');
   };
 
   return (
@@ -23,13 +23,13 @@ const LuxuryNavigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <button 
+            <button
               onClick={() => navigate('/')}
               className="hover:opacity-80 transition-opacity"
             >
-              <img 
-                src="/springslogo.png" 
-                alt="The Springs" 
+              <img
+                src="/springslogo.png"
+                alt="The Springs"
                 className="h-12 w-auto"
               />
             </button>
@@ -50,9 +50,9 @@ const LuxuryNavigation = () => {
 
           {/* Single CTA - Exclusive Experience */}
           <div className="hidden lg:flex items-center">
-            <Button 
-              variant="hero" 
-              size="lg" 
+            <Button
+              variant="hero"
+              size="lg"
               className="font-avenir"
               onClick={handleBookNow}
             >
@@ -87,9 +87,9 @@ const LuxuryNavigation = () => {
                 </a>
               ))}
               <div className="pt-6">
-                <Button 
-                  variant="hero" 
-                  size="lg" 
+                <Button
+                  variant="hero"
+                  size="lg"
                   className="w-full font-avenir"
                   onClick={handleBookNow}
                 >

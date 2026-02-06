@@ -15,7 +15,7 @@ const LuxuryExperiences = () => {
       icon: Waves,
       cta: 'Reserve Your Soak',
       image: '/poolwater.JPG',
-      action: () => navigate('/bookeo-integration')
+      action: () => navigate('/book-the-springs')
     },
     {
       id: 'wellness-treatments',
@@ -33,7 +33,7 @@ const LuxuryExperiences = () => {
       icon: Crown,
       cta: 'Request Sanctuary Access',
       image: '/privatepool1.jpg',
-      action: () => navigate('/bookeo-integration')
+      action: () => navigate('/book-the-springs')
     }
   ];
 
@@ -54,7 +54,7 @@ const LuxuryExperiences = () => {
           {experiences.map((experience, index) => {
             const IconComponent = experience.icon;
             return (
-              <Card 
+              <Card
                 key={experience.id}
                 className="group border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] overflow-hidden"
               >
@@ -71,18 +71,18 @@ const LuxuryExperiences = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <CardHeader className="pb-4">
                   <CardTitle className="font-canela text-2xl text-primary tracking-tight">
                     {experience.title}
                   </CardTitle>
                 </CardHeader>
-                
+
                 <CardContent className="space-y-6">
                   <p className="font-avenir text-muted-foreground leading-relaxed">
                     {experience.description}
                   </p>
-                  
+
                   <Button
                     onClick={experience.action}
                     size="lg"
