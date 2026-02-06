@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import LuxuryNavigation from "@/components/LuxuryNavigation";
 import Footer from "@/components/Footer";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useAnalytics } from "@/hooks/use-analytics";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -12,24 +12,12 @@ const BookTheSprings = () => {
     useAnalytics('booking');
     const navigate = useNavigate();
     const [waiverAccepted, setWaiverAccepted] = useState(false);
-    const [showBooking, setShowBooking] = useState(false);
 
-    // Scroll to booking section when shown
-    useEffect(() => {
-        if (showBooking) {
-            setTimeout(() => {
-                const element = document.getElementById('booking-section');
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 200);
-        }
-    }, [showBooking]);
+
 
     const handleAgreeAndContinue = () => {
         if (waiverAccepted) {
-            setShowBooking(true);
-            // Simulate data capture
+            // Log waiver acceptance
             console.log("Waiver Accepted:", {
                 acceptance: true,
                 timestamp: new Date().toISOString(),
@@ -37,12 +25,11 @@ const BookTheSprings = () => {
                 ip: "captured-at-server"
             });
 
-            // Scroll to booking widget
-            setTimeout(() => {
-                document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' });
-            }, 200);
+            // Redirect to Bookeo booking page
+            window.location.href = 'https://bookeo.com/thesprings';
         }
     };
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 font-avenir">
@@ -131,7 +118,7 @@ const BookTheSprings = () => {
                 </Card>
 
                 {/* Required Waiver Checkbox Section */}
-                {!showBooking && (
+                {(
                     <Card className="border-2 border-luxury/20 shadow-xl bg-white mb-16 overflow-hidden">
                         <CardHeader className="bg-luxury/5 border-b border-luxury/10">
                             <CardTitle className="font-canela text-2xl text-primary">Required Acknowledgment</CardTitle>
@@ -178,31 +165,7 @@ const BookTheSprings = () => {
                     </Card>
                 )}
 
-                {/* Booking Widget Section */}
-                <div id="booking-section" className={`transition-opacity duration-1000 ${showBooking ? 'opacity-100' : 'opacity-0 pointer-events-none h-0 p-0 overflow-hidden'}`}>
-                    <div className="mb-20">
-                        <div className="flex items-center justify-center space-x-2 text-green-600 mb-6 font-medium animate-luxury-fade">
-                            <CheckCircle2 className="w-5 h-5" />
-                            <span>Waiver Accepted</span>
-                        </div>
 
-                        <div className="text-center mb-10">
-                            <h2 className="font-canela text-3xl text-primary mb-2">Reservation System</h2>
-                            <p className="text-muted-foreground">Select your preferences below</p>
-                        </div>
-
-                        <div id="bookeo_widget" className="w-full bg-white rounded-xl shadow-lg h-[800px] overflow-hidden">
-                            <iframe
-                                src="https://www-13p.bookeo.com/bookeo/b_thesprings_start.html"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                title="The Springs Booking System"
-                                className="w-full h-full"
-                            />
-                        </div>
-                    </div>
-                </div>
 
                 {/* Help & Support Footer */}
                 <div className="grid md:grid-cols-4 gap-8 mb-20 border-t border-slate-200 pt-12">
