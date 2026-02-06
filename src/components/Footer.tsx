@@ -40,6 +40,7 @@ const Footer = () => {
         { name: "Privacy Policy", href: "/privacy", onClick: () => navigate('/privacy') },
         { name: "Terms & Conditions", href: "/terms", onClick: () => navigate('/terms') },
         { name: "Waiver", href: "/waiver", onClick: () => navigate('/waiver') },
+        { name: "Accessibility", href: "/accessibility", onClick: () => navigate('/accessibility') },
       ],
     },
   ];
@@ -109,30 +110,6 @@ const Footer = () => {
               © 2026 The Springs Resort & Inn The Pines. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0">
-              <button
-                onClick={() => navigate('/terms')}
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Terms & Conditions
-              </button>
-              <button
-                onClick={() => navigate('/privacy')}
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Privacy Policy
-              </button>
-              <button
-                onClick={() => navigate('/waiver')}
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Waiver
-              </button>
-              <button
-                onClick={() => navigate('/accessibility')}
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Accessibility
-              </button>
             </div>
           </div>
         </div>
